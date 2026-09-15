@@ -1,6 +1,7 @@
 /* =========================================================
    NEXI WEBSITE
-   VANILLA JAVASCRIPT
+   OPTIMIZED VANILLA JAVASCRIPT
+   FAST + SMOOTH + RESPONSIVE
 ========================================================= */
 
 "use strict";
@@ -11,20 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
        ELEMENTS
     ===================================================== */
 
-    const preloader =
-        document.getElementById("preloader");
-
-    const header =
-        document.getElementById("header");
-
-    const navbar =
-        document.getElementById("navbar");
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const backToTop =
-        document.getElementById("backToTop");
+    const preloader = document.getElementById("preloader");
+    const header = document.getElementById("header");
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const backToTop = document.getElementById("backToTop");
 
     const contactForm =
         document.getElementById("contactForm");
@@ -42,15 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("load", () => {
 
-        if (!preloader) {
-            return;
-        }
+        if (!preloader) return;
 
         setTimeout(() => {
 
             preloader.classList.add("hide");
 
-        }, 500);
+        }, 400);
 
     });
 
@@ -79,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        const navLinks =
+        const mobileLinks =
             navbar.querySelectorAll("a");
 
-        navLinks.forEach(link => {
+        mobileLinks.forEach(link => {
 
             link.addEventListener("click", () => {
 
@@ -103,13 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       HEADER SCROLL
+       OPTIMIZED SCROLL HANDLER
     ===================================================== */
 
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScrollUI = () => {
 
         const scrollPosition =
             window.scrollY;
+
+        /* Header */
 
         if (header) {
 
@@ -120,6 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
+        /* Back to top */
+
         if (backToTop) {
 
             backToTop.classList.toggle(
@@ -129,15 +126,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
+        ticking = false;
+
     };
+
 
     window.addEventListener(
         "scroll",
-        handleScroll,
+        () => {
+
+            if (!ticking) {
+
+                window.requestAnimationFrame(
+                    updateScrollUI
+                );
+
+                ticking = true;
+
+            }
+
+        },
         { passive: true }
     );
 
-    handleScroll();
+
+    updateScrollUI();
 
 
     /* =====================================================
@@ -163,38 +177,48 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const sections =
-        document.querySelectorAll("main section[id]");
+        document.querySelectorAll(
+            "main section[id]"
+        );
 
     const navLinks =
-        document.querySelectorAll(".nav-link");
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+
+    let navigationTicking = false;
+
 
     const updateActiveNavigation = () => {
 
+        const position =
+            window.scrollY + 180;
+
         let currentSection = "home";
 
-        const scrollPosition =
-            window.scrollY + 180;
 
         sections.forEach(section => {
 
-            const sectionTop =
+            const top =
                 section.offsetTop;
 
-            const sectionHeight =
-                section.offsetHeight;
+            const bottom =
+                top + section.offsetHeight;
+
 
             if (
-                scrollPosition >= sectionTop &&
-                scrollPosition <
-                    sectionTop + sectionHeight
+                position >= top &&
+                position < bottom
             ) {
 
                 currentSection =
-                    section.getAttribute("id");
+                    section.id;
 
             }
 
         });
+
 
         navLinks.forEach(link => {
 
@@ -208,13 +232,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+
+        navigationTicking = false;
+
     };
+
 
     window.addEventListener(
         "scroll",
-        updateActiveNavigation,
+        () => {
+
+            if (!navigationTicking) {
+
+                requestAnimationFrame(
+                    updateActiveNavigation
+                );
+
+                navigationTicking = true;
+
+            }
+
+        },
         { passive: true }
     );
+
 
     updateActiveNavigation();
 
@@ -224,9 +265,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const revealElements =
-        document.querySelectorAll(".reveal");
+        document.querySelectorAll(
+            ".reveal"
+        );
 
-    if ("IntersectionObserver" in window) {
+
+    if (
+        "IntersectionObserver" in window &&
+        revealElements.length
+    ) {
 
         const revealObserver =
             new IntersectionObserver(
@@ -234,7 +281,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
                             entry.target.classList.add(
                                 "visible"
@@ -250,9 +299,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 },
                 {
-                    threshold: 0.12
+                    threshold: 0.08,
+                    rootMargin:
+                        "0px 0px -30px 0px"
                 }
             );
+
 
         revealElements.forEach(element => {
 
@@ -264,7 +316,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         revealElements.forEach(element => {
 
-            element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
         });
 
@@ -276,47 +330,67 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const filterButtons =
-        document.querySelectorAll(".filter-btn");
+        document.querySelectorAll(
+            ".filter-btn"
+        );
 
     const portfolioCards =
-        document.querySelectorAll(".portfolio-card");
+        document.querySelectorAll(
+            ".portfolio-card"
+        );
+
 
     filterButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            filterButtons.forEach(btn => {
+                filterButtons.forEach(btn => {
 
-                btn.classList.remove("active");
+                    btn.classList.remove(
+                        "active"
+                    );
 
-            });
+                });
 
-            button.classList.add("active");
 
-            const filter =
-                button.dataset.filter;
+                button.classList.add(
+                    "active"
+                );
 
-            portfolioCards.forEach(card => {
 
-                const category =
-                    card.dataset.category;
+                const filter =
+                    button.dataset.filter;
 
-                if (
-                    filter === "all" ||
-                    category === filter
-                ) {
 
-                    card.classList.remove("hidden");
+                portfolioCards.forEach(card => {
 
-                } else {
+                    const category =
+                        card.dataset.category;
 
-                    card.classList.add("hidden");
 
-                }
+                    if (
+                        filter === "all" ||
+                        category === filter
+                    ) {
 
-            });
+                        card.classList.remove(
+                            "hidden"
+                        );
 
-        });
+                    } else {
+
+                        card.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                });
+
+            }
+        );
 
     });
 
@@ -331,42 +405,59 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     const websiteType =
-        document.getElementById("websiteType");
+        document.getElementById(
+            "websiteType"
+        );
+
 
     serviceButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const selectedService =
-                button.dataset.service;
+                const selectedService =
+                    button.dataset.service;
 
-            if (
-                websiteType &&
-                selectedService
-            ) {
 
-                const options =
-                    Array.from(
-                        websiteType.options
-                    );
+                if (
+                    !websiteType ||
+                    !selectedService
+                ) {
+                    return;
+                }
+
 
                 const matchingOption =
-                    options.find(
+                    Array.from(
+                        websiteType.options
+                    ).find(
                         option =>
                             option.textContent.trim() ===
-                            selectedService
+                            selectedService.trim()
                     );
+
 
                 if (matchingOption) {
 
                     websiteType.value =
                         matchingOption.value;
 
+                    /* Move to contact form */
+
+                    if (contactForm) {
+
+                        contactForm.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
+                    }
+
                 }
 
             }
-
-        });
+        );
 
     });
 
@@ -385,33 +476,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 clearFormErrors();
 
+
                 const formData =
-                    new FormData(contactForm);
+                    new FormData(
+                        contactForm
+                    );
+
 
                 const name =
                     String(
                         formData.get("name") || ""
                     ).trim();
 
+
                 const email =
                     String(
                         formData.get("email") || ""
                     ).trim();
+
 
                 const phone =
                     String(
                         formData.get("phone") || ""
                     ).trim();
 
+
                 const type =
                     String(
-                        formData.get("websiteType") || ""
+                        formData.get(
+                            "websiteType"
+                        ) || ""
                     ).trim();
+
 
                 const budget =
                     String(
                         formData.get("budget") || ""
                     ).trim();
+
 
                 const message =
                     String(
@@ -422,7 +524,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let valid = true;
 
 
-                /* NAME */
+                /* -----------------------------------------
+                   NAME
+                ----------------------------------------- */
 
                 if (name.length < 2) {
 
@@ -436,12 +540,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* EMAIL */
+                /* -----------------------------------------
+                   EMAIL
+                ----------------------------------------- */
 
                 const emailPattern =
                     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                if (!emailPattern.test(email)) {
+
+                if (
+                    !emailPattern.test(
+                        email
+                    )
+                ) {
 
                     showError(
                         "emailError",
@@ -453,10 +564,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* PHONE */
+                /* -----------------------------------------
+                   PHONE
+                ----------------------------------------- */
 
                 const cleanPhone =
-                    phone.replace(/\D/g, "");
+                    phone.replace(
+                        /\D/g,
+                        ""
+                    );
+
 
                 if (
                     cleanPhone.length !== 10
@@ -472,7 +589,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* WEBSITE TYPE */
+                /* -----------------------------------------
+                   WEBSITE TYPE
+                ----------------------------------------- */
 
                 if (!type) {
 
@@ -486,9 +605,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* MESSAGE */
+                /* -----------------------------------------
+                   MESSAGE
+                ----------------------------------------- */
 
-                if (message.length < 10) {
+                if (
+                    message.length < 10
+                ) {
 
                     showError(
                         "messageError",
@@ -499,6 +622,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
+
+                /* -----------------------------------------
+                   VALIDATION RESULT
+                ----------------------------------------- */
 
                 if (!valid) {
 
@@ -512,15 +639,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* =================================================
-                   FRONTEND ONLY SUCCESS
-                ================================================= */
-
-                showFormResult(
-                    "Your inquiry is ready. Choose WhatsApp or Email below.",
-                    "success"
-                );
-
+                /* -----------------------------------------
+                   WHATSAPP MESSAGE
+                ----------------------------------------- */
 
                 const whatsappMessage =
                     createWhatsAppMessage({
@@ -540,9 +661,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
+                /* -----------------------------------------
+                   EMAIL MESSAGE
+                ----------------------------------------- */
+
                 const emailSubject =
                     "NEXI Website Inquiry - " +
                     type;
+
 
                 const emailBody =
                     createEmailMessage({
@@ -555,43 +681,70 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
 
 
-                formResult.innerHTML = `
+                /* -----------------------------------------
+                   SUCCESS
+                ----------------------------------------- */
 
-                    <strong>
-                        Inquiry prepared successfully.
-                    </strong>
+                if (formResult) {
 
-                    <br><br>
+                    formResult.className =
+                        "form-result success";
 
-                    <a
-                        href="${whatsappURL}"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-whatsapp"
-                        style="display:inline-flex;">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        Send via WhatsApp
-                    </a>
 
-                    <a
-                        href="mailto:tejashweejena50@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}"
-                        class="btn btn-secondary"
-                        style="display:inline-flex;margin-left:6px;">
-                        <i class="fa-solid fa-envelope"></i>
-                        Send via Email
-                    </a>
+                    formResult.innerHTML = `
 
-                `;
+                        <strong>
+                            Inquiry prepared successfully.
+                        </strong>
+
+                        <br><br>
+
+                        <a
+                            href="${whatsappURL}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-whatsapp"
+                            style="display:inline-flex;"
+                        >
+
+                            <i
+                                class="fa-brands fa-whatsapp"
+                            ></i>
+
+                            Send via WhatsApp
+
+                        </a>
+
+
+                        <a
+                            href="mailto:tejashweejena50@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}"
+                            class="btn btn-secondary"
+                            style="
+                                display:inline-flex;
+                                margin-left:6px;
+                            "
+                        >
+
+                            <i
+                                class="fa-solid fa-envelope"
+                            ></i>
+
+                            Send via Email
+
+                        </a>
+
+                    `;
+
+                }
 
             }
-
         );
 
     }
 
 
     /* =====================================================
-       CREATE WHATSAPP MESSAGE
+       WHATSAPP MESSAGE
     ===================================================== */
 
     function createWhatsAppMessage(data) {
@@ -602,12 +755,17 @@ Hello NEXI Website,
 I am interested in creating a website.
 
 Name: ${data.name}
+
 Email: ${data.email}
+
 Phone: ${data.phone}
+
 Website Type: ${data.type}
+
 Budget: ${data.budget || "Not specified"}
 
 Project Details:
+
 ${data.message}
 
 Please share more details about the website development process.
@@ -619,7 +777,7 @@ Thank you.
 
 
     /* =====================================================
-       CREATE EMAIL MESSAGE
+       EMAIL MESSAGE
     ===================================================== */
 
     function createEmailMessage(data) {
@@ -630,12 +788,17 @@ Hello NEXI Website,
 I am interested in creating a website.
 
 Name: ${data.name}
+
 Email: ${data.email}
+
 Phone: ${data.phone}
+
 Website Type: ${data.type}
+
 Budget: ${data.budget || "Not specified"}
 
 Project Details:
+
 ${data.message}
 
 Please share more details about the website development process.
@@ -647,7 +810,7 @@ Thank you.
 
 
     /* =====================================================
-       FORM ERROR FUNCTIONS
+       FORM ERROR
     ===================================================== */
 
     function showError(
@@ -656,7 +819,10 @@ Thank you.
     ) {
 
         const element =
-            document.getElementById(elementId);
+            document.getElementById(
+                elementId
+            );
+
 
         if (element) {
 
@@ -675,11 +841,15 @@ Thank you.
                 ".error-message"
             );
 
-        errorElements.forEach(element => {
 
-            element.textContent = "";
+        errorElements.forEach(
+            element => {
 
-        });
+                element.textContent = "";
+
+            }
+        );
+
 
         if (formResult) {
 
@@ -698,12 +868,12 @@ Thank you.
         type
     ) {
 
-        if (!formResult) {
-            return;
-        }
+        if (!formResult) return;
+
 
         formResult.textContent =
             message;
+
 
         formResult.className =
             `form-result ${type}`;
@@ -724,14 +894,19 @@ Thank you.
 
 
     /* =====================================================
-       CEO CARD 3D MOUSE EFFECT
+       CEO 3D MOUSE EFFECT
     ===================================================== */
 
     const ceoCard =
-        document.querySelector(".ceo-card");
+        document.querySelector(
+            ".ceo-card"
+        );
 
     const heroVisual =
-        document.querySelector(".hero-visual");
+        document.querySelector(
+            ".hero-visual"
+        );
+
 
     if (
         ceoCard &&
@@ -741,37 +916,68 @@ Thank you.
         ).matches
     ) {
 
+        let mouseAnimationFrame = null;
+
+
         heroVisual.addEventListener(
             "mousemove",
             event => {
 
-                const rect =
-                    heroVisual.getBoundingClientRect();
+                if (mouseAnimationFrame) {
+                    return;
+                }
 
-                const x =
-                    event.clientX - rect.left;
 
-                const y =
-                    event.clientY - rect.top;
+                mouseAnimationFrame =
+                    requestAnimationFrame(
+                        () => {
 
-                const centerX =
-                    rect.width / 2;
+                            const rect =
+                                heroVisual.getBoundingClientRect();
 
-                const centerY =
-                    rect.height / 2;
 
-                const rotateY =
-                    ((x - centerX) / centerX) * 6;
+                            const x =
+                                event.clientX -
+                                rect.left;
 
-                const rotateX =
-                    ((centerY - y) / centerY) * 6;
 
-                ceoCard.style.transform =
-                    `translateY(-5px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)`;
+                            const y =
+                                event.clientY -
+                                rect.top;
 
-            }
+
+                            const centerX =
+                                rect.width / 2;
+
+
+                            const centerY =
+                                rect.height / 2;
+
+
+                            const rotateY =
+                                ((x - centerX) /
+                                    centerX) * 5;
+
+
+                            const rotateX =
+                                ((centerY - y) /
+                                    centerY) * 5;
+
+
+                            ceoCard.style.transform =
+                                `translate3d(0,-5px,0)
+                                 rotateX(${rotateX}deg)
+                                 rotateY(${rotateY}deg)`;
+
+
+                            mouseAnimationFrame =
+                                null;
+
+                        }
+                    );
+
+            },
+            { passive: true }
         );
 
 
@@ -789,11 +995,119 @@ Thank you.
 
 
     /* =====================================================
-       SMOOTH ANCHOR FALLBACK
+       MANAGER PROFILE
+       FAST + SMOOTH ANIMATION
+    ===================================================== */
+
+    const managerProfile =
+        document.querySelector(
+            "#manager .manager-profile"
+        );
+
+
+    if (managerProfile) {
+
+        /* Initial state */
+
+        managerProfile.style.opacity =
+            "0";
+
+
+        managerProfile.style.transform =
+            "translate3d(0,35px,0)";
+
+
+        managerProfile.style.willChange =
+            "opacity, transform";
+
+
+        managerProfile.style.transition =
+            "opacity 0.6s ease, " +
+            "transform 0.6s cubic-bezier(0.22,1,0.36,1)";
+
+
+        /* Intersection Observer */
+
+        if (
+            "IntersectionObserver" in window
+        ) {
+
+            const managerObserver =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(
+                            entry => {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    requestAnimationFrame(
+                                        () => {
+
+                                            managerProfile.style.opacity =
+                                                "1";
+
+
+                                            managerProfile.style.transform =
+                                                "translate3d(0,0,0)";
+
+
+                                            managerProfile.style.willChange =
+                                                "auto";
+
+                                        }
+                                    );
+
+
+                                    managerObserver.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold: 0.15,
+                        rootMargin:
+                            "0px 0px -50px 0px"
+                    }
+                );
+
+
+            managerObserver.observe(
+                managerProfile
+            );
+
+
+        } else {
+
+            managerProfile.style.opacity =
+                "1";
+
+            managerProfile.style.transform =
+                "translate3d(0,0,0)";
+
+            managerProfile.style.willChange =
+                "auto";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SMOOTH ANCHOR NAVIGATION
     ===================================================== */
 
     document
-        .querySelectorAll('a[href^="#"]')
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
         .forEach(anchor => {
 
             anchor.addEventListener(
@@ -801,7 +1115,10 @@ Thank you.
                 event => {
 
                     const targetId =
-                        anchor.getAttribute("href");
+                        anchor.getAttribute(
+                            "href"
+                        );
+
 
                     if (
                         !targetId ||
@@ -810,16 +1127,20 @@ Thank you.
                         return;
                     }
 
+
                     const target =
                         document.querySelector(
                             targetId
                         );
 
+
                     if (!target) {
                         return;
                     }
 
+
                     event.preventDefault();
+
 
                     target.scrollIntoView({
                         behavior: "smooth",
@@ -833,7 +1154,8 @@ Thank you.
 
 
     /* =====================================================
-       ESCAPE KEY CLOSES MOBILE MENU
+       ESCAPE KEY
+       CLOSE MOBILE MENU
     ===================================================== */
 
     document.addEventListener(
@@ -850,9 +1172,11 @@ Thank you.
                     "open"
                 );
 
+
                 menuToggle.classList.remove(
                     "open"
                 );
+
 
                 menuToggle.setAttribute(
                     "aria-expanded",
@@ -864,5 +1188,22 @@ Thank you.
         }
     );
 
+
+    /* =====================================================
+       REDUCED MOTION SUPPORT
+    ===================================================== */
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+
+    if (reducedMotion.matches) {
+
+        document.documentElement.style
+            .scrollBehavior = "auto";
+
+    }
 
 });
