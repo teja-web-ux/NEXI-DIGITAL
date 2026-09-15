@@ -1,2631 +1,3998 @@
-<!DOCTYPE html>
+/* =========================================================
+   NEXI WEBSITE
+   PREMIUM 3D / AESTHETIC DESIGN
+========================================================= */
 
-<html lang="en">
+:root {
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    --bg: #050711;
+    --bg-2: #080b18;
 
-```
-<meta name="description"
-    content="NEXI Digital creates modern, responsive and professional websites for businesses, education institutes, restaurants, e-commerce projects and individuals.">
+    --card: rgba(255,255,255,0.055);
+    --card-strong: rgba(255,255,255,0.09);
 
-<meta name="keywords"
-    content="NEXI Digital, website development, web design, business website, ecommerce website, portfolio website, Bhubaneswar">
+    --border: rgba(255,255,255,0.11);
 
-<meta name="author" content="Rahul Jena">
+    --text: #f6f8ff;
+    --muted: #9ba5bf;
 
-<meta property="og:title"
-    content="NEXI Digital | Professional Website Development Services">
+    --primary: #7c5cff;
+    --secondary: #00d9ff;
+    --pink: #ff4ecd;
 
-<meta property="og:description"
-    content="We Create Websites That Grow Your Business">
+    --success: #25d366;
 
-<meta property="og:type" content="website">
+    --shadow:
+        0 25px 80px rgba(0,0,0,0.35);
 
-<title>NEXI Digital | Professional Website Development Services</title>
+    --radius: 24px;
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    --container: 1180px;
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+}
 
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
-```
+/* =========================================================
+   RESET
+========================================================= */
 
-</head>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<body>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
 
-```
-<!-- PRELOADER -->
+body {
 
-<div id="preloader">
+    font-family: "Inter", sans-serif;
 
-    <div class="loader-logo">
-        NEXI DIGITAL
-    </div>
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124,92,255,0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,217,255,0.10),
+            transparent 30%
+        ),
+        var(--bg);
 
-    <div class="loader-line"></div>
+    color: var(--text);
 
-    <p>
-        Loading Experience...
-    </p>
+    overflow-x: hidden;
 
-</div>
+    line-height: 1.7;
 
+}
 
-<!-- BACKGROUND -->
 
-<div class="background-effects">
+body::before {
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    content: "";
 
-    <span class="particle p1"></span>
-    <span class="particle p2"></span>
-    <span class="particle p3"></span>
-    <span class="particle p4"></span>
-    <span class="particle p5"></span>
-    <span class="particle p6"></span>
+    position: fixed;
 
-</div>
+    inset: 0;
 
+    pointer-events: none;
 
-<!-- HEADER -->
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018) 1px,
+            transparent 1px
+        );
 
-<header class="header" id="header">
+    background-size: 70px 70px;
 
-    <div class="container nav-container">
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
 
-        <!-- LOGO WITH REAL IMAGE -->
+    z-index: -2;
 
-        <a href="#home" class="logo">
+}
 
-            <span class="logo-icon">
-                <img src="C:\Users\jenas\Downloads\WhatsApp Image 2026-09-15 at 9.17.45 PM.jpeg"
-                     alt="NEXI Digital Logo">
-            </span>
 
-            <span>
-                NEXI DIGITAL
-            </span>
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        </a>
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
 
+button {
+    cursor: pointer;
+}
 
-        <nav class="navbar" id="navbar">
+img {
+    max-width: 100%;
+    display: block;
+}
 
-            <a href="#home" class="nav-link active">
-                Home
-            </a>
 
-            <a href="#about" class="nav-link">
-                About
-            </a>
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-            <a href="#services" class="nav-link">
-                Services
-            </a>
+.container {
 
-            <a href="#pricing" class="nav-link">
-                Pricing
-            </a>
+    width: min(
+        calc(100% - 40px),
+        var(--container)
+    );
 
-            <a href="#portfolio" class="nav-link">
-                Portfolio
-            </a>
+    margin: auto;
 
-            <a href="#contact" class="nav-link">
-                Contact
-            </a>
+}
 
-            <a href="#contact" class="nav-cta">
-                Get Started
-            </a>
 
-        </nav>
+/* =========================================================
+   PRELOADER
+========================================================= */
 
+#preloader {
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false">
+    position: fixed;
 
-            <span></span>
-            <span></span>
-            <span></span>
+    inset: 0;
 
-        </button>
+    background: #03050d;
 
-    </div>
+    z-index: 9999;
 
-</header>
+    display: flex;
 
+    flex-direction: column;
 
-<!-- HERO -->
+    justify-content: center;
 
-<main>
+    align-items: center;
 
-    <section class="hero section" id="home">
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
 
-        <div class="container hero-grid">
+}
 
-            <!-- HERO CONTENT -->
+#preloader.hide {
 
-            <div class="hero-content reveal">
+    opacity: 0;
+    visibility: hidden;
 
-                <div class="hero-badge">
+}
 
-                    <span class="status-dot"></span>
+.loader-logo {
 
-                    Professional Web Development
+    font-size: 4rem;
 
-                </div>
+    font-weight: 900;
 
+    letter-spacing: 8px;
 
-                <h1>
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary),
+            var(--pink)
+        );
 
-                    NEXI
+    -webkit-background-clip: text;
+    background-clip: text;
 
-                    <span class="gradient-text">
-                        DIGITAL
-                    </span>
+    color: transparent;
 
-                </h1>
+    animation: loaderPulse 1.5s infinite;
 
+}
 
-                <h2>
+.loader-line {
 
-                    We Create Websites That
+    width: 160px;
+    height: 3px;
 
-                    <span class="gradient-text">
-                        Grow Your Business
-                    </span>
+    margin-top: 20px;
 
-                </h2>
+    border-radius: 50px;
 
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary),
+            var(--pink)
+        );
 
-                <p class="hero-description">
+    animation: loaderLine 1.4s infinite;
 
-                    Modern, responsive and professional websites designed
-                    to help businesses, organizations and individuals
-                    build a strong online presence.
+}
 
-                </p>
+#preloader p {
 
+    margin-top: 15px;
 
-                <div class="hero-buttons">
+    color: var(--muted);
 
-                    <a href="#contact" class="btn btn-primary">
+    font-size: 0.85rem;
 
-                        <i class="fa-solid fa-rocket"></i>
+}
 
-                        Get Your Website
 
-                    </a>
+@keyframes loaderPulse {
 
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-                    <a href="#services" class="btn btn-secondary">
+    50% {
+        transform: scale(1.06);
+    }
 
-                        <i class="fa-solid fa-layer-group"></i>
+}
 
-                        View Services
 
-                    </a>
+@keyframes loaderLine {
 
-                </div>
+    0% {
+        transform: scaleX(0.3);
+    }
 
+    50% {
+        transform: scaleX(1);
+    }
 
-                <div class="hero-stats">
+    100% {
+        transform: scaleX(0.3);
+    }
 
-                    <div>
+}
 
-                        <strong>
-                            5+
-                        </strong>
 
-                        <span>
-                            Website Types
-                        </span>
+/* =========================================================
+   BACKGROUND EFFECTS
+========================================================= */
 
-                    </div>
+.background-effects {
 
+    position: fixed;
 
-                    <div>
+    inset: 0;
 
-                        <strong>
-                            100%
-                        </strong>
+    overflow: hidden;
 
-                        <span>
-                            Responsive
-                        </span>
+    pointer-events: none;
 
-                    </div>
+    z-index: -1;
 
+}
 
-                    <div>
+.orb {
 
-                        <strong>
-                            24/7
-                        </strong>
+    position: absolute;
 
-                        <span>
-                            Online Presence
-                        </span>
+    border-radius: 50%;
 
-                    </div>
+    filter: blur(80px);
 
-                </div>
+    opacity: 0.3;
 
-            </div>
+    animation: orbFloat 10s ease-in-out infinite alternate;
 
+}
 
-            <!-- 3D CEO VISUAL -->
+.orb-1 {
 
-            <div class="hero-visual reveal">
+    width: 300px;
+    height: 300px;
 
-                <div class="visual-ring ring-one"></div>
-                <div class="visual-ring ring-two"></div>
-                <div class="visual-ring ring-three"></div>
+    background: var(--primary);
 
+    top: 5%;
+    left: -100px;
 
-                <div class="floating-tech tech-one">
+}
 
-                    <i class="fa-brands fa-html5"></i>
+.orb-2 {
 
-                    <span>
-                        HTML5
-                    </span>
+    width: 350px;
+    height: 350px;
 
-                </div>
+    background: var(--secondary);
 
+    right: -150px;
+    top: 35%;
 
-                <div class="floating-tech tech-two">
+    animation-delay: 2s;
 
-                    <i class="fa-brands fa-css3-alt"></i>
+}
 
-                    <span>
-                        CSS3
-                    </span>
+.orb-3 {
 
-                </div>
+    width: 280px;
+    height: 280px;
 
+    background: var(--pink);
 
-                <div class="floating-tech tech-three">
+    bottom: -100px;
+    left: 40%;
 
-                    <i class="fa-brands fa-js"></i>
+    animation-delay: 4s;
 
-                    <span>
-                        JavaScript
-                    </span>
+}
 
-                </div>
 
+@keyframes orbFloat {
 
-                <div class="ceo-card">
+    from {
+        transform: translate3d(0,0,0) scale(1);
+    }
 
-                    <div class="ceo-photo-wrapper">
+    to {
+        transform: translate3d(30px,-40px,0) scale(1.15);
+    }
 
-                        <div class="photo-glow"></div>
+}
 
-                        <img
-                            src="technical.jpeg"
-                            alt="Tejashwee Jena - CEO of NEXI Digital"
-                            class="ceo-photo"
-                            onerror="this.src='https://placehold.co/500x500/101522/ffffff?text=CEO+Photo'">
 
-                    </div>
+.particle {
 
+    position: absolute;
 
-                    <div class="ceo-info">
+    width: 4px;
+    height: 4px;
 
-                        <span class="ceo-label">
-                            FOUNDER & CEO
-                        </span>
+    background: #fff;
 
-                        <h3>
-                            Tejashwee Jena
-                        </h3>
+    border-radius: 50%;
 
-                        <p>
-                            Creative Web Developer
-                        </p>
+    opacity: 0.5;
 
+    animation: particleFloat 8s infinite ease-in-out;
 
-                        <div class="ceo-social">
+}
 
-                            <a
-                                href="tel:6289292667"
-                                aria-label="Call NEXI Digital">
+.p1 { top: 15%; left: 15%; }
+.p2 { top: 25%; left: 70%; animation-delay: 1s; }
+.p3 { top: 65%; left: 12%; animation-delay: 2s; }
+.p4 { top: 80%; left: 80%; animation-delay: 3s; }
+.p5 { top: 45%; left: 50%; animation-delay: 4s; }
+.p6 { top: 10%; left: 90%; animation-delay: 5s; }
 
-                                <i class="fa-solid fa-phone"></i>
 
-                            </a>
+@keyframes particleFloat {
 
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.2;
+    }
 
-                            <a
-                                href="mailto:tejashweejena50@gmail.com"
-                                aria-label="Email NEXI Digital">
+    50% {
+        transform: translateY(-40px);
+        opacity: 0.9;
+    }
 
-                                <i class="fa-solid fa-envelope"></i>
+}
 
-                            </a>
 
+/* =========================================================
+   HEADER
+========================================================= */
 
-                            <a
-                                href="https://wa.me/916289292667"
-                                target="_blank"
-                                rel="noopener"
-                                aria-label="WhatsApp NEXI Digital">
+.header {
 
-                                <i class="fa-brands fa-whatsapp"></i>
+    position: fixed;
 
-                            </a>
+    top: 0;
+    left: 0;
+    right: 0;
 
-                        </div>
+    z-index: 1000;
 
-                    </div>
+    padding: 18px 0;
 
-                </div>
+    transition:
+        background 0.3s,
+        padding 0.3s,
+        box-shadow 0.3s;
 
+}
 
-                <div class="floating-card card-project">
+.header.scrolled {
 
-                    <i class="fa-solid fa-code"></i>
+    padding: 10px 0;
 
-                    <div>
+    background:
+        rgba(5,7,17,0.82);
 
-                        <strong>
-                            Modern UI
-                        </strong>
+    backdrop-filter: blur(20px);
 
-                        <small>
-                            Premium Design
-                        </small>
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.25);
 
-                    </div>
+}
 
-                </div>
 
+.nav-container {
 
-                <div class="floating-card card-speed">
+    display: flex;
 
-                    <i class="fa-solid fa-gauge-high"></i>
+    align-items: center;
 
-                    <div>
+    justify-content: space-between;
 
-                        <strong>
-                            Fast
-                        </strong>
+}
 
-                        <small>
-                            Optimized Website
-                        </small>
 
-                    </div>
+.logo {
 
-                </div>
+    display: flex;
 
-            </div>
+    align-items: center;
 
-        </div>
+    gap: 10px;
 
+    font-size: 1.35rem;
 
-        <div class="scroll-indicator">
+    font-weight: 900;
 
-            <span>
-                Scroll to explore
-            </span>
+    letter-spacing: 2px;
 
-            <i class="fa-solid fa-arrow-down"></i>
+}
 
-        </div>
+.logo-icon {
 
-    </section>
+    width: 40px;
+    height: 40px;
 
+    display: grid;
+    place-items: center;
 
-    <!-- ABOUT -->
+    border-radius: 12px;
 
-    <section class="section about-section" id="about">
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
 
-        <div class="container">
+    color: white;
 
-            <div class="section-heading reveal">
+    box-shadow:
+        0 8px 30px rgba(124,92,255,0.3);
 
-                <span class="section-tag">
-                    ABOUT NEXI DIGITAL
-                </span>
+}
 
-                <h2>
 
-                    Building Digital
+.navbar {
 
-                    <span class="gradient-text">
-                        Experiences
-                    </span>
+    display: flex;
 
-                </h2>
+    align-items: center;
 
-                <p>
+    gap: 28px;
 
-                    NEXI Digital is a professional website development and
-                    digital design project focused on creating modern,
-                    professional and user-friendly websites.
+}
 
-                </p>
+.nav-link {
 
-            </div>
+    color: var(--muted);
 
+    font-size: 0.9rem;
 
-            <div class="about-grid">
+    font-weight: 600;
 
-                <div class="about-card glass-card reveal">
+    position: relative;
 
-                    <div class="about-icon">
+    transition: 0.3s;
 
-                        <i class="fa-solid fa-laptop-code"></i>
+}
 
-                    </div>
+.nav-link:hover,
+.nav-link.active {
 
-                    <h3>
-                        Professional Development
-                    </h3>
+    color: white;
 
-                    <p>
+}
 
-                        We create modern websites for businesses,
-                        organizations, education institutes,
-                        restaurants, online stores and individuals.
+.nav-link::after {
 
-                    </p>
+    content: "";
 
-                </div>
+    position: absolute;
 
+    left: 0;
+    bottom: -8px;
 
-                <div class="about-ceo glass-card reveal">
+    width: 0;
+    height: 2px;
 
-                    <div class="mini-ceo">
+    border-radius: 10px;
 
-                        <img
-                            src="technical.jpeg"
-                            alt="Tejashwee Jena CEO"
-                            onerror="this.src='https://placehold.co/250x250/101522/ffffff?text=Tejashwee'">
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary)
+        );
 
-                    </div>
+    transition: 0.3s;
 
+}
 
-                    <div>
+.nav-link:hover::after,
+.nav-link.active::after {
 
-                        <span class="small-label">
-                            CEO & CREATIVE DIRECTOR
-                        </span>
+    width: 100%;
 
-                        <h3>
-                            Tejashwee Jena
-                        </h3>
+}
 
-                        <p>
 
-                            Leading NEXI Digital with a focus on modern
-                            digital design, responsive development
-                            and professional user experiences.
+.nav-cta {
 
-                        </p>
+    padding: 11px 18px;
 
-                    </div>
+    border-radius: 12px;
 
-                </div>
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #a05cff
+        );
 
-            </div>
+    font-size: 0.85rem;
 
-        </div>
+    font-weight: 700;
 
-    </section>
+    box-shadow:
+        0 10px 30px rgba(124,92,255,0.3);
 
+    transition: 0.3s;
 
-    <!-- MANAGER PROFILE -->
+}
 
-    <section class="section manager-section" id="manager">
+.nav-cta:hover {
 
-        <div class="container">
+    transform: translateY(-2px);
 
-            <div class="section-heading">
+    box-shadow:
+        0 15px 40px rgba(124,92,255,0.45);
 
-                <span class="section-tag">
-                    MANAGER PROFILE
-                </span>
+}
 
-                <h2>
-                    Meet Our Manager
-                </h2>
 
-                <p>
-                    Professional leadership behind NEXI Digital
-                </p>
+.menu-toggle {
 
-            </div>
+    display: none;
 
+    border: 0;
 
-            <div class="manager-profile">
+    background: transparent;
 
-                <!-- Manager Photo -->
+    width: 42px;
+    height: 42px;
 
-                <div class="manager-image">
+    flex-direction: column;
 
-                    <div class="manager-image-glow"></div>
+    justify-content: center;
 
-                    <img
-                        src="theory teacher (2).jpeg"
-                        alt="Rahul Jena - Manager">
+    align-items: center;
 
-                </div>
+    gap: 5px;
 
+}
 
-                <!-- Manager Information -->
+.menu-toggle span {
 
-                <div class="manager-content">
+    width: 24px;
+    height: 2px;
 
-                    <span class="manager-role">
-                        MANAGER
-                    </span>
+    background: white;
 
-                    <h3>
-                        Rahul Jena
-                    </h3>
+    border-radius: 20px;
 
-                    <h4>
-                        NEXI Digital
-                    </h4>
+    transition: 0.3s;
 
-                    <p>
+}
 
-                        Managing the NEXI Digital project with a focus on
-                        professional website development, modern digital
-                        design, business solutions, and a smooth
-                        customer experience.
 
-                    </p>
+/* =========================================================
+   SECTION
+========================================================= */
 
-                    <p>
+.section {
 
-                        The goal is to create modern, responsive and
-                        user-friendly websites that help businesses
-                        and individuals build a strong digital presence.
+    padding: 110px 0;
 
-                    </p>
+}
 
+.section-heading {
 
-                    <div class="manager-details">
+    max-width: 720px;
 
-                        <div>
+    margin: 0 auto 55px;
 
-                            <strong>
-                                Experience
-                            </strong>
+    text-align: center;
 
-                            <span>
-                                Digital Web Development
-                            </span>
+}
 
-                        </div>
+.section-tag {
 
+    display: inline-block;
 
-                        <div>
+    color: var(--secondary);
 
-                            <strong>
-                                Focus
-                            </strong>
+    font-size: 0.72rem;
 
-                            <span>
-                                Modern & Professional Websites
-                            </span>
+    font-weight: 800;
 
-                        </div>
+    letter-spacing: 3px;
 
+    margin-bottom: 14px;
 
-                        <div>
+}
 
-                            <strong>
-                                Location
-                            </strong>
+.section-heading h2 {
 
-                            <span>
-                                Bhubaneswar, Odisha
-                            </span>
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.4rem
+    );
 
-                        </div>
+    line-height: 1.15;
 
-                    </div>
+    margin-bottom: 18px;
 
-                </div>
+}
 
-            </div>
+.section-heading p {
 
-        </div>
+    color: var(--muted);
 
-    </section>
+}
 
 
-    <!-- SERVICES -->
+/* =========================================================
+   GRADIENT TEXT
+========================================================= */
 
-    <section class="section" id="services">
+.gradient-text {
 
-        <div class="container">
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary),
+            var(--pink)
+        );
 
-            <div class="section-heading reveal">
+    -webkit-background-clip: text;
+    background-clip: text;
 
-                <span class="section-tag">
-                    OUR SERVICES
-                </span>
+    color: transparent;
 
-                <h2>
+}
 
-                    Websites For
 
-                    <span class="gradient-text">
-                        Every Need
-                    </span>
+/* =========================================================
+   HERO
+========================================================= */
 
-                </h2>
+.hero {
 
-                <p>
+    min-height: 100vh;
 
-                    Choose a website solution designed around your
-                    business or personal requirements.
+    display: flex;
 
-                </p>
+    align-items: center;
 
-            </div>
+    position: relative;
 
+    padding-top: 130px;
 
-            <div class="service-grid">
+}
 
-                <!-- SERVICE 1 -->
+.hero-grid {
 
-                <article class="service-card reveal">
+    display: grid;
 
-                    <div class="service-number">
-                        01
-                    </div>
+    grid-template-columns:
+        1fr
+        0.9fr;
 
-                    <div class="service-icon">
+    gap: 70px;
 
-                        <i class="fa-solid fa-building"></i>
+    align-items: center;
 
-                    </div>
+}
 
-                    <h3>
-                        Business Website
-                    </h3>
 
-                    <p>
+.hero-badge {
 
-                        Professional websites for businesses to
-                        showcase services, products and company
-                        information.
+    display: inline-flex;
 
-                    </p>
+    align-items: center;
 
-                    <div class="price">
+    gap: 10px;
 
-                        ₹15,000
+    padding: 8px 14px;
 
-                        <span>
-                            Starting
-                        </span>
+    border: 1px solid var(--border);
 
-                    </div>
+    background: rgba(255,255,255,0.04);
 
-                    <ul>
+    border-radius: 50px;
 
-                        <li>
-                            Professional homepage
-                        </li>
+    color: #dce2f5;
 
-                        <li>
-                            About & Services
-                        </li>
+    font-size: 0.75rem;
 
-                        <li>
-                            Contact section
-                        </li>
+    font-weight: 700;
 
-                        <li>
-                            Responsive design
-                        </li>
+    margin-bottom: 24px;
 
-                        <li>
-                            WhatsApp integration
-                        </li>
+    backdrop-filter: blur(12px);
 
-                        <li>
-                            Basic SEO structure
-                        </li>
+}
 
-                    </ul>
+.status-dot {
 
-                    <a
-                        href="#contact"
-                        class="service-btn"
-                        data-service="Business Website">
+    width: 8px;
+    height: 8px;
 
-                        Get Started
+    border-radius: 50%;
 
-                        <i class="fa-solid fa-arrow-right"></i>
+    background: var(--success);
 
-                    </a>
+    box-shadow:
+        0 0 15px var(--success);
 
-                </article>
+}
 
 
-                <!-- SERVICE 2 -->
+.hero-content h1 {
 
-                <article class="service-card featured reveal">
+    font-size: clamp(
+        4rem,
+        10vw,
+        7rem
+    );
 
-                    <div class="popular">
-                        RECOMMENDED
-                    </div>
+    line-height: 0.9;
 
-                    <div class="service-number">
-                        02
-                    </div>
+    letter-spacing: -5px;
 
-                    <div class="service-icon">
+    font-weight: 900;
 
-                        <i class="fa-solid fa-graduation-cap"></i>
+    margin-bottom: 25px;
 
-                    </div>
+}
 
-                    <h3>
-                        Education Website
-                    </h3>
+.hero-content h1 span {
 
-                    <p>
+    display: block;
 
-                        Websites for schools, colleges, coaching
-                        centres, institutes and education platforms.
+}
 
-                    </p>
 
-                    <div class="price">
+.hero-content h2 {
 
-                        ₹20,000
+    max-width: 650px;
 
-                        <span>
-                            Starting
-                        </span>
+    font-size: clamp(
+        1.5rem,
+        3vw,
+        2.5rem
+    );
 
-                    </div>
+    line-height: 1.2;
 
-                    <ul>
+    margin-bottom: 20px;
 
-                        <li>
-                            Institute information
-                        </li>
+}
 
-                        <li>
-                            Courses section
-                        </li>
 
-                        <li>
-                            Faculty section
-                        </li>
+.hero-description {
 
-                        <li>
-                            Admission information
-                        </li>
+    max-width: 620px;
 
-                        <li>
-                            Gallery
-                        </li>
+    color: var(--muted);
 
-                        <li>
-                            Contact & Location
-                        </li>
+    font-size: 1.05rem;
 
-                    </ul>
+    margin-bottom: 30px;
 
-                    <a
-                        href="#contact"
-                        class="service-btn"
-                        data-service="Education Website">
+}
 
-                        Get Started
 
-                        <i class="fa-solid fa-arrow-right"></i>
+.hero-buttons {
 
-                    </a>
+    display: flex;
 
-                </article>
+    flex-wrap: wrap;
 
+    gap: 14px;
 
-                <!-- SERVICE 3 -->
+}
 
-                <article class="service-card reveal">
 
-                    <div class="service-number">
-                        03
-                    </div>
+.btn {
 
-                    <div class="service-icon">
+    display: inline-flex;
 
-                        <i class="fa-solid fa-utensils"></i>
+    align-items: center;
 
-                    </div>
+    justify-content: center;
 
-                    <h3>
-                        Restaurant Website
-                    </h3>
+    gap: 9px;
 
-                    <p>
+    padding: 14px 21px;
 
-                        Modern restaurant websites with menus,
-                        galleries, location and contact features.
+    border-radius: 14px;
 
-                    </p>
+    font-size: 0.9rem;
 
-                    <div class="price">
+    font-weight: 800;
 
-                        ₹30,000
+    border: 1px solid transparent;
 
-                        <span>
-                            Starting
-                        </span>
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        background 0.3s;
 
-                    </div>
+}
 
-                    <ul>
+.btn:hover {
 
-                        <li>
-                            Restaurant homepage
-                        </li>
+    transform: translateY(-4px);
 
-                        <li>
-                            Food menu
-                        </li>
+}
 
-                        <li>
-                            Food gallery
-                        </li>
+.btn-primary {
 
-                        <li>
-                            About restaurant
-                        </li>
+    color: white;
 
-                        <li>
-                            Location
-                        </li>
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #a14fff
+        );
 
-                        <li>
-                            WhatsApp integration
-                        </li>
+    box-shadow:
+        0 15px 40px rgba(124,92,255,0.25);
 
-                    </ul>
+}
 
-                    <a
-                        href="#contact"
-                        class="service-btn"
-                        data-service="Restaurant Website">
+.btn-primary:hover {
 
-                        Get Started
+    box-shadow:
+        0 20px 55px rgba(124,92,255,0.45);
 
-                        <i class="fa-solid fa-arrow-right"></i>
+}
 
-                    </a>
+.btn-secondary {
 
-                </article>
+    color: white;
 
+    border-color: var(--border);
 
-                <!-- SERVICE 4 -->
+    background: rgba(255,255,255,0.045);
 
-                <article class="service-card reveal">
+    backdrop-filter: blur(10px);
 
-                    <div class="service-number">
-                        04
-                    </div>
+}
 
-                    <div class="service-icon">
+.btn-secondary:hover {
 
-                        <i class="fa-solid fa-cart-shopping"></i>
+    background: rgba(255,255,255,0.09);
 
-                    </div>
+}
 
-                    <h3>
-                        E-commerce Website
-                    </h3>
 
-                    <p>
+.btn-whatsapp {
 
-                        Online shopping websites where customers
-                        can browse products and place orders.
+    color: white;
 
-                    </p>
+    background: var(--success);
 
-                    <div class="price">
+    box-shadow:
+        0 15px 35px rgba(37,211,102,0.2);
 
-                        ₹25,000
+}
 
-                        <span>
-                            Starting
-                        </span>
 
-                    </div>
+.btn-outline {
 
-                    <ul>
+    width: 100%;
 
-                        <li>
-                            Product listing
-                        </li>
+    border-color: var(--border);
 
-                        <li>
-                            Product cards
-                        </li>
+    background: rgba(255,255,255,0.04);
 
-                        <li>
-                            Shopping cart
-                        </li>
+}
 
-                        <li>
-                            Product search
-                        </li>
 
-                        <li>
-                            Categories
-                        </li>
+.hero-stats {
 
-                        <li>
-                            Responsive design
-                        </li>
+    display: flex;
 
-                    </ul>
+    gap: 35px;
 
-                    <a
-                        href="#contact"
-                        class="service-btn"
-                        data-service="E-commerce Website">
+    margin-top: 40px;
 
-                        Get Started
+}
 
-                        <i class="fa-solid fa-arrow-right"></i>
+.hero-stats div {
 
-                    </a>
+    display: flex;
 
-                </article>
+    flex-direction: column;
 
+}
 
-                <!-- SERVICE 5 -->
+.hero-stats strong {
 
-                <article class="service-card reveal">
+    font-size: 1.4rem;
 
-                    <div class="service-number">
-                        05
-                    </div>
+}
 
-                    <div class="service-icon">
+.hero-stats span {
 
-                        <i class="fa-solid fa-user-tie"></i>
+    color: var(--muted);
 
-                    </div>
+    font-size: 0.75rem;
 
-                    <h3>
-                        Portfolio Website
-                    </h3>
+}
 
-                    <p>
 
-                        Personal and professional portfolios for
-                        showcasing skills, projects and achievements.
+/* =========================================================
+   3D HERO VISUAL
+========================================================= */
 
-                    </p>
+.hero-visual {
 
-                    <div class="price">
+    position: relative;
 
-                        Contact
+    min-height: 600px;
 
-                        <span>
-                            For Pricing
-                        </span>
+    display: grid;
 
-                    </div>
+    place-items: center;
 
-                    <ul>
+    perspective: 1200px;
 
-                        <li>
-                            Personal introduction
-                        </li>
+}
 
-                        <li>
-                            About & Skills
-                        </li>
 
-                        <li>
-                            Projects
-                        </li>
+.ceo-card {
 
-                        <li>
-                            Gallery
-                        </li>
+    position: relative;
 
-                        <li>
-                            Achievements
-                        </li>
+    z-index: 10;
 
-                        <li>
-                            Social links
-                        </li>
+    width: 340px;
 
-                    </ul>
+    padding: 18px;
 
-                    <a
-                        href="#contact"
-                        class="service-btn"
-                        data-service="Portfolio Website">
+    border-radius: 30px;
 
-                        Get Started
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.14),
+            rgba(255,255,255,0.035)
+        );
 
-                        <i class="fa-solid fa-arrow-right"></i>
+    border: 1px solid rgba(255,255,255,0.18);
 
-                    </a>
+    backdrop-filter: blur(25px);
 
-                </article>
+    box-shadow:
+        0 35px 100px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.15);
 
-            </div>
+    transform-style: preserve-3d;
 
-        </div>
+    animation:
+        ceoFloat 6s ease-in-out infinite;
 
-    </section>
+}
 
+.ceo-photo-wrapper {
 
-    <!-- WHAT YOU GET -->
+    position: relative;
 
-    <section class="section features-section">
+    width: 100%;
 
-        <div class="container">
+    aspect-ratio: 1;
 
-            <div class="section-heading reveal">
+    border-radius: 24px;
 
-                <span class="section-tag">
-                    EVERY PROJECT
-                </span>
+    padding: 7px;
 
-                <h2>
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary),
+            var(--primary),
+            var(--pink)
+        );
 
-                    What You Get With
+    overflow: hidden;
 
-                    <span class="gradient-text">
-                        Every Website
-                    </span>
+}
 
-                </h2>
 
-            </div>
+.ceo-photo-wrapper::before {
 
+    content: "";
 
-            <div class="feature-grid">
+    position: absolute;
 
-                <div class="feature-item reveal">
+    inset: 10px;
 
-                    <i class="fa-solid fa-mobile-screen"></i>
+    border: 1px solid rgba(255,255,255,0.25);
 
-                    <div>
+    border-radius: 20px;
 
-                        <h3>
-                            Responsive Design
-                        </h3>
+    z-index: 2;
 
-                        <p>
-                            Mobile, tablet and desktop support.
-                        </p>
+}
 
-                    </div>
 
-                </div>
+.photo-glow {
 
+    position: absolute;
 
-                <div class="feature-item reveal">
+    inset: -40px;
 
-                    <i class="fa-solid fa-house"></i>
+    background:
+        conic-gradient(
+            var(--secondary),
+            var(--primary),
+            var(--pink),
+            var(--secondary)
+        );
 
-                    <div>
+    animation: rotateGlow 5s linear infinite;
 
-                        <h3>
-                            Professional Homepage
-                        </h3>
+}
 
-                        <p>
-                            A strong first impression for visitors.
-                        </p>
 
-                    </div>
+.ceo-photo {
 
-                </div>
+    position: relative;
 
+    z-index: 1;
 
-                <div class="feature-item reveal">
+    width: 100%;
+    height: 100%;
 
-                    <i class="fa-solid fa-comments"></i>
+    object-fit: cover;
 
-                    <div>
+    border-radius: 19px;
 
-                        <h3>
-                            Contact & WhatsApp
-                        </h3>
+    background: #101522;
 
-                        <p>
-                            Easy ways for customers to reach you.
-                        </p>
+}
 
-                    </div>
 
-                </div>
+@keyframes rotateGlow {
 
+    to {
+        transform: rotate(360deg);
+    }
 
-                <div class="feature-item reveal">
+}
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
 
-                    <div>
+@keyframes ceoFloat {
 
-                        <h3>
-                            SEO Structure
-                        </h3>
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotateX(1deg)
+            rotateY(-2deg);
+    }
 
-                        <p>
-                            Basic SEO-friendly website structure.
-                        </p>
+    50% {
+        transform:
+            translateY(-18px)
+            rotateX(-1deg)
+            rotateY(2deg);
+    }
 
-                    </div>
+}
 
-                </div>
 
+.ceo-info {
 
-                <div class="feature-item reveal">
+    padding: 20px 8px 6px;
 
-                    <i class="fa-solid fa-image"></i>
+}
 
-                    <div>
+.ceo-label,
+.small-label {
 
-                        <h3>
-                            Gallery
-                        </h3>
+    color: var(--secondary);
 
-                        <p>
-                            Showcase your products and work.
-                        </p>
+    font-size: 0.65rem;
 
-                    </div>
+    letter-spacing: 2px;
 
-                </div>
+    font-weight: 800;
 
+}
 
-                <div class="feature-item reveal">
+.ceo-info h3 {
 
-                    <i class="fa-solid fa-rocket"></i>
+    font-size: 1.55rem;
 
-                    <div>
+    margin: 3px 0;
 
-                        <h3>
-                            Deployment Support
-                        </h3>
+}
 
-                        <p>
-                            Support for publishing your website.
-                        </p>
+.ceo-info p {
 
-                    </div>
+    color: var(--muted);
 
-                </div>
+    font-size: 0.82rem;
 
-            </div>
+}
 
-        </div>
 
-    </section>
+.ceo-social {
 
+    display: flex;
 
-    <!-- WHY CHOOSE -->
+    gap: 8px;
 
-    <section class="section" id="why">
+    margin-top: 14px;
 
-        <div class="container">
+}
 
-            <div class="section-heading reveal">
+.ceo-social a {
 
-                <span class="section-tag">
-                    WHY NEXI DIGITAL
-                </span>
+    width: 35px;
+    height: 35px;
 
-                <h2>
+    display: grid;
+    place-items: center;
 
-                    Why Choose
+    border-radius: 10px;
 
-                    <span class="gradient-text">
-                        NEXI Digital?
-                    </span>
+    background: rgba(255,255,255,0.07);
 
-                </h2>
+    border: 1px solid var(--border);
 
-            </div>
+    transition: 0.3s;
 
+}
 
-            <div class="why-grid">
+.ceo-social a:hover {
 
-                <div class="why-card reveal">
+    transform: translateY(-3px);
 
-                    <span>
-                        01
-                    </span>
+    background: rgba(255,255,255,0.14);
 
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+}
 
-                    <h3>
-                        Modern Design
-                    </h3>
 
-                    <p>
+.visual-ring {
 
-                        Professional visual design suitable for
-                        modern businesses.
+    position: absolute;
 
-                    </p>
+    border: 1px solid rgba(124,92,255,0.25);
 
-                </div>
+    border-radius: 50%;
 
+    transform: rotateX(65deg);
 
-                <div class="why-card reveal">
+    animation: ringSpin 14s linear infinite;
 
-                    <span>
-                        02
-                    </span>
+}
 
-                    <i class="fa-solid fa-display"></i>
+.ring-one {
 
-                    <h3>
-                        Fully Responsive
-                    </h3>
+    width: 500px;
+    height: 500px;
 
-                    <p>
+}
 
-                        Websites designed to work across phones,
-                        tablets and desktops.
+.ring-two {
 
-                    </p>
+    width: 600px;
+    height: 350px;
 
-                </div>
+    border-color:
+        rgba(0,217,255,0.2);
 
+    animation-duration: 18s;
 
-                <div class="why-card reveal">
+    animation-direction: reverse;
 
-                    <span>
-                        03
-                    </span>
+}
 
-                    <i class="fa-solid fa-face-smile"></i>
+.ring-three {
 
-                    <h3>
-                        User Friendly
-                    </h3>
+    width: 380px;
+    height: 650px;
 
-                    <p>
+    border-color:
+        rgba(255,78,205,0.18);
 
-                        Simple navigation and clear user experience.
+    animation-duration: 20s;
 
-                    </p>
+}
 
-                </div>
 
+@keyframes ringSpin {
 
-                <div class="why-card reveal">
+    from {
+        transform:
+            rotateX(65deg)
+            rotateZ(0);
+    }
 
-                    <span>
-                        04
-                    </span>
+    to {
+        transform:
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
 
-                    <i class="fa-solid fa-bolt"></i>
+}
 
-                    <h3>
-                        Fast Interface
-                    </h3>
 
-                    <p>
+.floating-tech {
 
-                        Lightweight HTML, CSS and JavaScript.
+    position: absolute;
 
-                    </p>
+    z-index: 15;
 
-                </div>
+    display: flex;
 
+    align-items: center;
 
-                <div class="why-card reveal">
+    gap: 8px;
 
-                    <span>
-                        05
-                    </span>
+    padding: 10px 14px;
 
-                    <i class="fa-solid fa-palette"></i>
+    border-radius: 12px;
 
-                    <h3>
-                        Custom Branding
-                    </h3>
+    background:
+        rgba(8,11,24,0.8);
 
-                    <p>
+    border: 1px solid var(--border);
 
-                        Design your website around your brand.
+    backdrop-filter: blur(15px);
 
-                    </p>
+    font-size: 0.7rem;
 
-                </div>
+    font-weight: 800;
 
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.3);
 
-                <div class="why-card reveal">
+    animation: techFloat 5s ease-in-out infinite;
 
-                    <span>
-                        06
-                    </span>
+}
 
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
+.floating-tech i {
 
-                    <h3>
-                        Deployment Support
-                    </h3>
+    font-size: 1.1rem;
 
-                    <p>
+}
 
-                        Support for publishing your website online.
+.tech-one {
 
-                    </p>
+    top: 16%;
 
-                </div>
+    left: 4%;
 
-            </div>
+    color: #ff6b35;
 
-        </div>
+}
 
-    </section>
+.tech-two {
 
+    right: 4%;
 
-    <!-- PROCESS -->
+    top: 27%;
 
-    <section class="section process-section">
+    color: #3fa9f5;
 
-        <div class="container">
+    animation-delay: 1s;
 
-            <div class="section-heading reveal">
+}
 
-                <span class="section-tag">
-                    OUR PROCESS
-                </span>
+.tech-three {
 
-                <h2>
+    left: 5%;
 
-                    From Idea To
+    bottom: 22%;
 
-                    <span class="gradient-text">
-                        Website
-                    </span>
+    color: #f7df1e;
 
-                </h2>
+    animation-delay: 2s;
 
-            </div>
+}
 
 
-            <div class="process-grid">
+@keyframes techFloat {
 
-                <div class="process-step reveal">
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-                    <div class="process-number">
-                        01
-                    </div>
+    50% {
+        transform: translateY(-15px);
+    }
 
-                    <i class="fa-solid fa-comments"></i>
+}
 
-                    <h3>
-                        Discuss
-                    </h3>
 
-                    <p>
-                        Understand your business and requirements.
-                    </p>
+.floating-card {
 
-                </div>
+    position: absolute;
 
+    z-index: 20;
 
-                <div class="process-step reveal">
+    display: flex;
 
-                    <div class="process-number">
-                        02
-                    </div>
+    align-items: center;
 
-                    <i class="fa-solid fa-list-check"></i>
+    gap: 10px;
 
-                    <h3>
-                        Plan
-                    </h3>
+    padding: 13px;
 
-                    <p>
-                        Plan pages, structure and functionality.
-                    </p>
+    background:
+        rgba(10,14,30,0.88);
 
-                </div>
+    border: 1px solid var(--border);
 
+    border-radius: 15px;
 
-                <div class="process-step reveal">
+    backdrop-filter: blur(15px);
 
-                    <div class="process-number">
-                        03
-                    </div>
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.35);
 
-                    <i class="fa-solid fa-pen-ruler"></i>
+    animation: cardFloat 6s ease-in-out infinite;
 
-                    <h3>
-                        Design
-                    </h3>
+}
 
-                    <p>
-                        Create the visual design and layout.
-                    </p>
+.floating-card i {
 
-                </div>
+    width: 35px;
+    height: 35px;
 
+    display: grid;
+    place-items: center;
 
-                <div class="process-step reveal">
+    border-radius: 10px;
 
-                    <div class="process-number">
-                        04
-                    </div>
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
 
-                    <i class="fa-solid fa-code"></i>
+}
 
-                    <h3>
-                        Develop
-                    </h3>
+.floating-card strong {
 
-                    <p>
-                        Build and connect website functionality.
-                    </p>
+    display: block;
 
-                </div>
+    font-size: 0.75rem;
 
+}
 
-                <div class="process-step reveal">
+.floating-card small {
 
-                    <div class="process-number">
-                        05
-                    </div>
+    color: var(--muted);
 
-                    <i class="fa-solid fa-vial"></i>
+    font-size: 0.62rem;
 
-                    <h3>
-                        Test
-                    </h3>
+}
 
-                    <p>
-                        Test navigation, forms and responsiveness.
-                    </p>
+.card-project {
 
-                </div>
+    right: -5%;
 
+    bottom: 22%;
 
-                <div class="process-step reveal">
+}
 
-                    <div class="process-number">
-                        06
-                    </div>
+.card-speed {
 
-                    <i class="fa-solid fa-rocket"></i>
+    left: -2%;
 
-                    <h3>
-                        Deploy
-                    </h3>
+    top: 58%;
 
-                    <p>
-                        Prepare the website for deployment.
-                    </p>
+    animation-delay: 1.5s;
 
-                </div>
+}
 
-            </div>
 
-        </div>
+@keyframes cardFloat {
 
-    </section>
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
 
-    <!-- PRICING -->
+}
 
-    <section class="section" id="pricing">
 
-        <div class="container">
+.scroll-indicator {
 
-            <div class="section-heading reveal">
+    position: absolute;
 
-                <span class="section-tag">
-                    PRICING
-                </span>
+    bottom: 25px;
 
-                <h2>
+    left: 50%;
 
-                    Simple & Clear
+    transform: translateX(-50%);
 
-                    <span class="gradient-text">
-                        Pricing
-                    </span>
+    display: flex;
 
-                </h2>
+    flex-direction: column;
 
-            </div>
+    align-items: center;
 
+    gap: 5px;
 
-            <div class="pricing-grid">
+    color: var(--muted);
 
-                <div class="pricing-card reveal">
+    font-size: 0.65rem;
 
-                    <i class="fa-solid fa-building pricing-icon"></i>
+}
 
-                    <h3>
-                        Business
-                    </h3>
+.scroll-indicator i {
 
-                    <div class="pricing-price">
-                        ₹15,000
-                    </div>
+    animation: scrollBounce 1.5s infinite;
 
-                    <p>
-                        Professional business website.
-                    </p>
+}
 
-                    <a
-                        href="#contact"
-                        class="btn btn-outline"
-                        data-service="Business Website">
 
-                        Choose Plan
+@keyframes scrollBounce {
 
-                    </a>
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-                </div>
+    50% {
+        transform: translateY(7px);
+    }
 
+}
+/* =========================================================
+   MANAGER PROFILE
+========================================================= */
 
-                <div class="pricing-card popular-price reveal">
+.manager-section {
+    position: relative;
+    overflow: hidden;
+}
 
-                    <span class="pricing-badge">
-                        RECOMMENDED
-                    </span>
+/* Main profile card */
+.manager-profile {
+    position: relative;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 55px;
+    align-items: center;
 
-                    <i class="fa-solid fa-graduation-cap pricing-icon"></i>
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 30px;
 
-                    <h3>
-                        Education
-                    </h3>
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-                    <div class="pricing-price">
-                        ₹20,000
-                    </div>
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-                    <p>
-                        Professional education website.
-                    </p>
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
 
-                    <a
-                        href="#contact"
-                        class="btn btn-primary"
-                        data-service="Education Website">
+.manager-profile:hover {
+    transform: translateY(-8px);
 
-                        Choose Plan
+    border-color: rgba(0, 210, 255, 0.35);
 
-                    </a>
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.45),
+        0 0 45px rgba(0, 210, 255, 0.08);
+}
 
-                </div>
 
+/* =========================================================
+   MANAGER IMAGE
+========================================================= */
 
-                <div class="pricing-card reveal">
+.manager-image {
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-                    <i class="fa-solid fa-utensils pricing-icon"></i>
+.manager-image::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
 
-                    <h3>
-                        Restaurant
-                    </h3>
+    border-radius: 50%;
 
-                    <div class="pricing-price">
-                        ₹30,000
-                    </div>
+    border: 1px solid rgba(0, 210, 255, 0.35);
 
-                    <p>
-                        Modern restaurant website.
-                    </p>
+    animation: managerRotate 8s linear infinite;
+}
 
-                    <a
-                        href="#contact"
-                        class="btn btn-outline"
-                        data-service="Restaurant Website">
+.manager-image::after {
+    content: "";
+    position: absolute;
+    inset: -25px;
 
-                        Choose Plan
+    border-radius: 50%;
 
-                    </a>
+    border: 1px dashed rgba(120, 90, 255, 0.25);
 
-                </div>
+    animation: managerRotateReverse 12s linear infinite;
+}
 
+.manager-image-glow {
+    position: absolute;
+    width: 75%;
+    height: 75%;
 
-                <div class="pricing-card reveal">
+    border-radius: 50%;
 
-                    <i class="fa-solid fa-cart-shopping pricing-icon"></i>
+    background: rgba(0, 210, 255, 0.12);
 
-                    <h3>
-                        E-commerce
-                    </h3>
+    filter: blur(45px);
 
-                    <div class="pricing-price">
-                        ₹25,000
-                    </div>
+    z-index: 0;
+}
 
-                    <p>
-                        Online shopping interface.
-                    </p>
+.manager-image img {
+    position: relative;
+    z-index: 2;
 
-                    <a
-                        href="#contact"
-                        class="btn btn-outline"
-                        data-service="E-commerce Website">
+    width: 100%;
+    height: 100%;
 
-                        Choose Plan
+    object-fit: cover;
 
-                    </a>
+    border-radius: 50%;
 
-                </div>
+    border: 5px solid rgba(255, 255, 255, 0.12);
 
-            </div>
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(0, 210, 255, 0.15);
 
+    transition: transform 0.5s ease,
+                border-color 0.5s ease;
+}
 
-            <p class="pricing-note">
+.manager-profile:hover .manager-image img {
+    transform: scale(1.04);
 
-                Advanced payment gateways, databases and
-                production e-commerce functionality may require
-                additional backend configuration.
+    border-color: rgba(0, 210, 255, 0.45);
+}
 
-            </p>
 
-        </div>
+/* =========================================================
+   MANAGER CONTENT
+========================================================= */
 
-    </section>
+.manager-content {
+    position: relative;
+}
 
+.manager-role {
+    display: inline-block;
 
-    <!-- PORTFOLIO -->
+    margin-bottom: 12px;
+    padding: 7px 16px;
 
-    <section class="section" id="portfolio">
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
 
-        <div class="container">
+    color: #00d9ff;
 
-            <div class="section-heading reveal">
+    background: rgba(0, 210, 255, 0.08);
 
-                <span class="section-tag">
-                    PORTFOLIO
-                </span>
+    border: 1px solid rgba(0, 210, 255, 0.20);
 
-                <h2>
+    border-radius: 50px;
+}
 
-                    Website
+.manager-content h3 {
+    margin: 0;
 
-                    <span class="gradient-text">
-                        Concepts
-                    </span>
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    font-weight: 800;
 
-                </h2>
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #00d9ff,
+        #9b7cff
+    );
 
-                <p>
-                    Sample concepts for different website categories.
-                </p>
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
-            </div>
+.manager-content h4 {
+    margin: 12px 0 20px;
 
+    font-size: 18px;
+    font-weight: 600;
 
-            <div class="portfolio-filter">
+    opacity: 0.75;
+}
 
-                <button
-                    class="filter-btn active"
-                    data-filter="all">
+.manager-content p {
+    margin: 0 0 16px;
 
-                    All
+    font-size: 16px;
+    line-height: 1.8;
 
-                </button>
+    color: rgba(255, 255, 255, 0.72);
+}
 
-                <button
-                    class="filter-btn"
-                    data-filter="business">
 
-                    Business
+/* =========================================================
+   MANAGER DETAILS
+========================================================= */
 
-                </button>
+.manager-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
 
-                <button
-                    class="filter-btn"
-                    data-filter="education">
+    margin-top: 28px;
+}
 
-                    Education
+.manager-details div {
+    padding: 18px;
 
-                </button>
+    background: rgba(255, 255, 255, 0.035);
 
-                <button
-                    class="filter-btn"
-                    data-filter="restaurant">
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-                    Restaurant
+    border-radius: 16px;
 
-                </button>
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+}
 
-                <button
-                    class="filter-btn"
-                    data-filter="ecommerce">
+.manager-details div:hover {
+    transform: translateY(-5px);
 
-                    E-commerce
+    background: rgba(255, 255, 255, 0.06);
 
-                </button>
+    border-color: rgba(0, 210, 255, 0.25);
+}
 
-            </div>
+.manager-details strong {
+    display: block;
 
+    margin-bottom: 7px;
 
-            <div class="portfolio-grid">
+    font-size: 13px;
 
-                <article
-                    class="portfolio-card reveal"
-                    data-category="business">
+    color: #00d9ff;
 
-                    <div class="portfolio-image business-image">
+    letter-spacing: 0.5px;
+}
 
-                        <i class="fa-solid fa-building"></i>
+.manager-details span {
+    display: block;
 
-                    </div>
+    font-size: 13px;
 
-                    <div class="portfolio-content">
+    line-height: 1.5;
 
-                        <span>
-                            BUSINESS
-                        </span>
+    color: rgba(255, 255, 255, 0.65);
+}
 
-                        <h3>
-                            Business Website
-                        </h3>
 
-                        <p>
-                            Professional business web concept.
-                        </p>
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
-                        <a href="#contact">
+@keyframes managerRotate {
+    from {
+        transform: rotate(0deg);
+    }
 
-                            Discuss Project
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-                            <i class="fa-solid fa-arrow-right"></i>
+@keyframes managerRotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
 
-                        </a>
+    to {
+        transform: rotate(0deg);
+    }
+}
 
-                    </div>
 
-                </article>
+/* =========================================================
+   TABLET
+========================================================= */
 
+@media (max-width: 900px) {
 
-                <article
-                    class="portfolio-card reveal"
-                    data-category="education">
+    .manager-profile {
+        grid-template-columns: 280px 1fr;
+        gap: 35px;
+        padding: 35px;
+    }
 
-                    <div class="portfolio-image education-image">
+    .manager-image {
+        max-width: 270px;
+    }
 
-                        <i class="fa-solid fa-graduation-cap"></i>
+    .manager-details {
+        grid-template-columns: 1fr;
+    }
 
-                    </div>
+}
 
-                    <div class="portfolio-content">
 
-                        <span>
-                            EDUCATION
-                        </span>
+/* =========================================================
+   MOBILE
+========================================================= */
 
-                        <h3>
-                            Education Website
-                        </h3>
+@media (max-width: 700px) {
 
-                        <p>
-                            Modern institute website concept.
-                        </p>
+    .manager-profile {
+        grid-template-columns: 1fr;
 
-                        <a href="#contact">
+        padding: 30px 20px;
 
-                            Discuss Project
+        text-align: center;
 
-                            <i class="fa-solid fa-arrow-right"></i>
+        border-radius: 24px;
+    }
 
-                        </a>
+    .manager-image {
+        max-width: 240px;
+    }
 
-                    </div>
+    .manager-content h3 {
+        font-size: 34px;
+    }
 
-                </article>
+    .manager-content h4 {
+        font-size: 16px;
+    }
 
+    .manager-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
 
-                <article
-                    class="portfolio-card reveal"
-                    data-category="restaurant">
+    .manager-details {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
 
-                    <div class="portfolio-image restaurant-image">
+}
 
-                        <i class="fa-solid fa-utensils"></i>
 
-                    </div>
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-                    <div class="portfolio-content">
+@media (max-width: 420px) {
 
-                        <span>
-                            RESTAURANT
-                        </span>
+    .manager-profile {
+        padding: 25px 16px;
+    }
 
-                        <h3>
-                            Restaurant Website
-                        </h3>
+    .manager-image {
+        max-width: 200px;
+    }
 
-                        <p>
-                            Elegant food business concept.
-                        </p>
+    .manager-content h3 {
+        font-size: 29px;
+    }
 
-                        <a href="#contact">
+    .manager-role {
+        font-size: 10px;
+    }
 
-                            Discuss Project
+}
 
-                            <i class="fa-solid fa-arrow-right"></i>
+/* =========================================================
+   GLASS CARDS
+========================================================= */
 
-                        </a>
+.glass-card {
 
-                    </div>
+    background:
+        rgba(255,255,255,0.045);
 
-                </article>
+    border: 1px solid var(--border);
 
+    border-radius: var(--radius);
 
-                <article
-                    class="portfolio-card reveal"
-                    data-category="ecommerce">
+    backdrop-filter: blur(20px);
 
-                    <div class="portfolio-image ecommerce-image">
+    box-shadow: var(--shadow);
 
-                        <i class="fa-solid fa-cart-shopping"></i>
+}
 
-                    </div>
 
-                    <div class="portfolio-content">
+/* =========================================================
+   ABOUT
+========================================================= */
 
-                        <span>
-                            E-COMMERCE
-                        </span>
+.about-grid {
 
-                        <h3>
-                            Online Store
-                        </h3>
+    display: grid;
 
-                        <p>
-                            Modern shopping website concept.
-                        </p>
+    grid-template-columns:
+        1fr
+        1.4fr;
 
-                        <a href="#contact">
+    gap: 25px;
 
-                            Discuss Project
+}
 
-                            <i class="fa-solid fa-arrow-right"></i>
+.about-card {
 
-                        </a>
+    padding: 35px;
 
-                    </div>
+}
 
-                </article>
+.about-icon {
 
+    width: 60px;
+    height: 60px;
 
-                <article
-                    class="portfolio-card reveal"
-                    data-category="business">
+    display: grid;
+    place-items: center;
 
-                    <div class="portfolio-image portfolio-image-2">
+    border-radius: 18px;
 
-                        <i class="fa-solid fa-briefcase"></i>
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
 
-                    </div>
+    font-size: 1.4rem;
 
-                    <div class="portfolio-content">
+    margin-bottom: 20px;
 
-                        <span>
-                            PORTFOLIO
-                        </span>
+}
 
-                        <h3>
-                            Professional Portfolio
-                        </h3>
+.about-card h3 {
 
-                        <p>
-                            Personal portfolio website concept.
-                        </p>
+    margin-bottom: 10px;
 
-                        <a href="#contact">
+}
 
-                            Discuss Project
+.about-card p,
+.about-ceo p {
 
-                            <i class="fa-solid fa-arrow-right"></i>
+    color: var(--muted);
 
-                        </a>
+}
 
-                    </div>
 
-                </article>
+.about-ceo {
 
-            </div>
+    display: flex;
 
-        </div>
+    align-items: center;
 
-    </section>
+    gap: 25px;
 
+    padding: 25px;
 
-    <!-- CTA -->
+}
 
-    <section class="cta-section">
+.mini-ceo {
 
-        <div class="container">
+    flex: 0 0 140px;
 
-            <div class="cta-box reveal">
+    width: 140px;
+    height: 140px;
 
-                <div>
+    padding: 4px;
 
-                    <span class="section-tag">
-                        START YOUR PROJECT
-                    </span>
+    border-radius: 50%;
 
-                    <h2>
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary),
+            var(--primary),
+            var(--pink)
+        );
 
-                        Ready To Build Your
+}
 
-                        <span class="gradient-text">
-                            Website?
-                        </span>
+.mini-ceo img {
 
-                    </h2>
+    width: 100%;
+    height: 100%;
 
-                    <p>
+    object-fit: cover;
 
-                        Let's turn your idea into a modern digital
-                        experience.
+    border-radius: 50%;
 
-                    </p>
+    background: #101522;
 
-                </div>
+}
 
 
-                <a href="#contact" class="btn btn-primary">
+/* =========================================================
+   SERVICES
+========================================================= */
 
-                    <i class="fa-solid fa-rocket"></i>
+.service-grid {
 
-                    Let's Build
+    display: grid;
 
-                </a>
+    grid-template-columns:
+        repeat(3, 1fr);
 
-            </div>
+    gap: 22px;
 
-        </div>
+}
 
-    </section>
 
+.service-card {
 
-    <!-- CONTACT -->
+    position: relative;
 
-    <section class="section contact-section" id="contact">
+    padding: 30px;
 
-        <div class="container">
+    border-radius: var(--radius);
 
-            <div class="section-heading reveal">
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
+        );
 
-                <span class="section-tag">
-                    CONTACT NEXI DIGITAL
-                </span>
+    border: 1px solid var(--border);
 
-                <h2>
+    overflow: hidden;
 
-                    Let's Build Your
+    transition:
+        transform 0.4s,
+        border-color 0.4s,
+        box-shadow 0.4s;
 
-                    <span class="gradient-text">
-                        Website
-                    </span>
+}
 
-                </h2>
+.service-card::before {
 
-                <p>
+    content: "";
 
-                    Have a website idea? Contact NEXI Digital and let's
-                    discuss your project.
+    position: absolute;
 
-                </p>
+    width: 180px;
+    height: 180px;
 
-            </div>
+    border-radius: 50%;
 
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            transparent
+        );
 
-            <div class="contact-grid">
+    filter: blur(50px);
 
-                <!-- CONTACT INFORMATION -->
+    opacity: 0;
 
-                <div class="contact-info reveal">
+    top: -100px;
+    right: -100px;
 
-                    <div class="contact-card">
+    transition: 0.5s;
 
-                        <div class="contact-icon">
+}
 
-                            <i class="fa-solid fa-phone"></i>
+.service-card:hover {
 
-                        </div>
+    transform:
+        translateY(-10px)
+        rotateX(2deg)
+        rotateY(-2deg);
 
-                        <div>
+    border-color:
+        rgba(124,92,255,0.5);
 
-                            <span>
-                                PHONE
-                            </span>
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.3);
 
-                            <a href="tel:6289292667">
-                                6289292667
-                            </a>
+}
 
-                        </div>
+.service-card:hover::before {
 
-                    </div>
+    opacity: 0.35;
 
+}
 
-                    <div class="contact-card">
 
-                        <div class="contact-icon">
+.service-card.featured {
 
-                            <i class="fa-brands fa-whatsapp"></i>
+    border-color:
+        rgba(124,92,255,0.55);
 
-                        </div>
+    box-shadow:
+        0 25px 70px rgba(124,92,255,0.12);
 
-                        <div>
+}
 
-                            <span>
-                                WHATSAPP
-                            </span>
 
-                            <a
-                                href="https://wa.me/916289292667"
-                                target="_blank"
-                                rel="noopener">
+.popular {
 
-                                6289292667
+    position: absolute;
 
-                            </a>
+    top: 18px;
+    right: 18px;
 
-                        </div>
+    font-size: 0.58rem;
 
-                    </div>
+    font-weight: 900;
 
+    padding: 6px 9px;
 
-                    <div class="contact-card">
+    border-radius: 20px;
 
-                        <div class="contact-icon">
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--pink)
+        );
 
-                            <i class="fa-solid fa-envelope"></i>
+}
 
-                        </div>
 
-                        <div>
+.service-number {
 
-                            <span>
-                                EMAIL
-                            </span>
+    position: absolute;
 
-                            <a href="mailto:tejashweejena50@gmail.com">
+    right: 25px;
+    bottom: 15px;
 
-                                tejashweejena50@gmail.com
+    font-size: 4rem;
 
-                            </a>
+    font-weight: 900;
 
-                        </div>
+    color: rgba(255,255,255,0.025);
 
-                    </div>
+}
 
 
-                    <div class="contact-card">
+.service-icon {
 
-                        <div class="contact-icon">
+    width: 60px;
+    height: 60px;
 
-                            <i class="fa-solid fa-location-dot"></i>
+    display: grid;
+    place-items: center;
 
-                        </div>
+    border-radius: 17px;
 
-                        <div>
+    background:
+        rgba(124,92,255,0.12);
 
-                            <span>
-                                LOCATION
-                            </span>
+    color: var(--secondary);
 
-                            <p>
-                                Bhubaneswar, Odisha, India
-                            </p>
+    font-size: 1.4rem;
 
-                        </div>
+    margin-bottom: 22px;
 
-                    </div>
+}
 
 
-                    <div class="contact-actions">
+.service-card h3 {
 
-                        <a
-                            href="tel:6289292667"
-                            class="btn btn-primary">
+    font-size: 1.3rem;
 
-                            <i class="fa-solid fa-phone"></i>
+    margin-bottom: 10px;
 
-                            Call Now
+}
 
-                        </a>
+.service-card > p {
 
+    color: var(--muted);
 
-                        <a
-                            href="https://wa.me/916289292667?text=Hello%20NEXI%20Digital%2C%20I%20am%20interested%20in%20creating%20a%20website.%20Please%20share%20more%20details"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-whatsapp">
+    font-size: 0.85rem;
 
-                            <i class="fa-brands fa-whatsapp"></i>
+    min-height: 75px;
 
-                            WhatsApp
+}
 
-                        </a>
+.price {
 
+    font-size: 1.6rem;
 
-                        <a
-                            href="mailto:tejashweejena50@gmail.com"
-                            class="btn btn-secondary">
+    font-weight: 900;
 
-                            <i class="fa-solid fa-envelope"></i>
+    margin: 18px 0;
 
-                            Send Email
+}
 
-                        </a>
+.price span {
 
-                    </div>
+    font-size: 0.65rem;
 
-                </div>
+    color: var(--muted);
 
+    font-weight: 500;
 
-                <!-- CONTACT FORM -->
+}
 
-                <div class="contact-form-wrapper glass-card reveal">
 
-                    <form id="contactForm" novalidate>
+.service-card ul {
 
-                        <div class="form-row">
+    list-style: none;
 
-                            <div class="form-group">
+    margin-bottom: 25px;
 
-                                <label for="name">
-                                    Name *
-                                </label>
+}
 
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Your name"
-                                    autocomplete="name">
+.service-card li {
 
-                                <small
-                                    class="error-message"
-                                    id="nameError">
-                                </small>
+    color: #b7bfd3;
 
-                            </div>
+    font-size: 0.78rem;
 
+    padding: 6px 0;
 
-                            <div class="form-group">
+}
 
-                                <label for="email">
-                                    Email *
-                                </label>
+.service-card li::before {
 
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    autocomplete="email">
+    content: "✓";
 
-                                <small
-                                    class="error-message"
-                                    id="emailError">
-                                </small>
+    color: var(--secondary);
 
-                            </div>
+    font-weight: 900;
 
-                        </div>
+    margin-right: 8px;
 
+}
 
-                        <div class="form-row">
 
-                            <div class="form-group">
+.service-btn {
 
-                                <label for="phone">
-                                    Phone *
-                                </label>
+    display: flex;
 
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder="10-digit phone number"
-                                    autocomplete="tel">
+    align-items: center;
 
-                                <small
-                                    class="error-message"
-                                    id="phoneError">
-                                </small>
+    justify-content: space-between;
 
-                            </div>
+    padding: 12px 14px;
 
+    border: 1px solid var(--border);
 
-                            <div class="form-group">
+    border-radius: 12px;
 
-                                <label for="websiteType">
-                                    Website Type *
-                                </label>
+    background: rgba(255,255,255,0.035);
 
-                                <select
-                                    id="websiteType"
-                                    name="websiteType">
+    font-size: 0.8rem;
 
-                                    <option value="">
-                                        Select website type
-                                    </option>
+    font-weight: 800;
 
-                                    <option>
-                                        Business Website
-                                    </option>
+    transition: 0.3s;
 
-                                    <option>
-                                        Education Website
-                                    </option>
+}
 
-                                    <option>
-                                        Restaurant Website
-                                    </option>
+.service-btn:hover {
 
-                                    <option>
-                                        E-commerce Website
-                                    </option>
+    background:
+        rgba(124,92,255,0.15);
 
-                                    <option>
-                                        Portfolio Website
-                                    </option>
+    border-color:
+        rgba(124,92,255,0.4);
 
-                                    <option>
-                                        Other
-                                    </option>
+}
 
-                                </select>
 
-                                <small
-                                    class="error-message"
-                                    id="websiteTypeError">
-                                </small>
+/* =========================================================
+   FEATURES
+========================================================= */
 
-                            </div>
+.features-section {
 
-                        </div>
+    background:
+        rgba(255,255,255,0.018);
 
+}
 
-                        <div class="form-group">
+.feature-grid {
 
-                            <label for="budget">
-                                Budget
-                            </label>
+    display: grid;
 
-                            <select
-                                id="budget"
-                                name="budget">
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                                <option value="">
-                                    Select your budget
-                                </option>
+    gap: 18px;
 
-                                <option>
-                                    Below ₹10,000
-                                </option>
+}
 
-                                <option>
-                                    ₹10,000 - ₹20,000
-                                </option>
+.feature-item {
 
-                                <option>
-                                    ₹20,000 - ₹50,000
-                                </option>
+    display: flex;
 
-                                <option>
-                                    ₹50,000+
-                                </option>
+    gap: 16px;
 
-                                <option>
-                                    Not decided
-                                </option>
+    align-items: flex-start;
 
-                            </select>
+    padding: 25px;
 
-                        </div>
+    border-radius: 18px;
 
+    border: 1px solid var(--border);
 
-                        <div class="form-group">
+    background:
+        rgba(255,255,255,0.035);
 
-                            <label for="message">
-                                Message *
-                            </label>
+    transition: 0.3s;
 
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                placeholder="Tell us about your website idea..."></textarea>
+}
 
-                            <small
-                                class="error-message"
-                                id="messageError">
-                            </small>
+.feature-item:hover {
 
-                        </div>
+    transform: translateY(-5px);
 
+    background:
+        rgba(255,255,255,0.065);
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary submit-btn">
+}
 
-                            <i class="fa-solid fa-paper-plane"></i>
+.feature-item > i {
 
-                            Send Inquiry
+    width: 45px;
+    height: 45px;
 
-                        </button>
+    flex: 0 0 45px;
 
+    display: grid;
+    place-items: center;
 
-                        <div
-                            id="formResult"
-                            class="form-result"
-                            role="status"
-                            aria-live="polite">
-                        </div>
+    border-radius: 12px;
 
-                    </form>
+    background:
+        rgba(0,217,255,0.1);
 
-                </div>
+    color: var(--secondary);
 
-            </div>
+}
 
+.feature-item h3 {
 
-            <!-- LOCATION -->
+    font-size: 0.95rem;
 
-            <div class="location-card glass-card reveal">
+    margin-bottom: 4px;
 
-                <div class="location-icon">
+}
 
-                    <i class="fa-solid fa-map-location-dot"></i>
+.feature-item p {
 
-                </div>
+    color: var(--muted);
 
-                <div>
+    font-size: 0.75rem;
 
-                    <span>
-                        OUR LOCATION
-                    </span>
+}
 
-                    <h3>
-                        Bhubaneswar, Odisha, India
-                    </h3>
 
-                    <p>
-                        NEXI Digital website development services.
-                    </p>
+/* =========================================================
+   WHY
+========================================================= */
 
-                </div>
+.why-grid {
 
+    display: grid;
 
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Bhubaneswar%2C%20Odisha%2C%20India"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary">
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                    <i class="fa-solid fa-location-arrow"></i>
+    gap: 20px;
 
-                    View Location
+}
 
-                </a>
+.why-card {
 
-            </div>
+    position: relative;
 
-        </div>
+    padding: 30px;
 
-    </section>
+    border: 1px solid var(--border);
 
-</main>
+    border-radius: 20px;
 
+    background:
+        rgba(255,255,255,0.035);
 
-<!-- FOOTER -->
+    overflow: hidden;
 
-<footer class="footer">
+    transition: 0.4s;
 
-    <div class="container footer-grid">
+}
 
-        <div>
+.why-card:hover {
 
-            <a href="#home" class="logo footer-logo">
+    transform: translateY(-8px);
 
-                <span class="logo-icon">
+    border-color:
+        rgba(0,217,255,0.3);
 
-                    <img
-                        src="images/logo.png"
-                        alt="NEXI Digital Logo">
+}
 
-                </span>
+.why-card > span {
 
-                NEXI DIGITAL
+    position: absolute;
 
-            </a>
+    top: 15px;
+    right: 20px;
 
+    color: rgba(255,255,255,0.08);
 
-            <p>
-                We Create Websites That Grow Your Business.
-            </p>
+    font-size: 2.5rem;
 
+    font-weight: 900;
 
-            <p class="ceo-footer">
+}
 
-                Founder & CEO:
+.why-card i {
 
-                <strong>
-                    Tejashwee Jena
-                </strong>
+    color: var(--secondary);
 
-            </p>
+    font-size: 1.5rem;
 
-        </div>
+    margin-bottom: 20px;
 
+}
 
-        <div class="footer-links">
+.why-card h3 {
 
-            <h3>
-                Quick Links
-            </h3>
+    margin-bottom: 8px;
 
-            <a href="#home">
-                Home
-            </a>
+}
 
-            <a href="#about">
-                About
-            </a>
+.why-card p {
 
-            <a href="#services">
-                Services
-            </a>
+    color: var(--muted);
 
-            <a href="#pricing">
-                Pricing
-            </a>
+    font-size: 0.82rem;
 
-            <a href="#portfolio">
-                Portfolio
-            </a>
+}
 
-            <a href="#contact">
-                Contact
-            </a>
 
-        </div>
+/* =========================================================
+   PROCESS
+========================================================= */
 
+.process-section {
 
-        <div class="footer-contact">
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(124,92,255,0.04),
+            transparent
+        );
 
-            <h3>
-                Contact
-            </h3>
+}
 
+.process-grid {
 
-            <a href="tel:6289292667">
+    display: grid;
 
-                <i class="fa-solid fa-phone"></i>
+    grid-template-columns:
+        repeat(6, 1fr);
 
-                6289292667
+    gap: 12px;
 
-            </a>
+}
 
+.process-step {
 
-            <a href="mailto:tejashweejena50@gmail.com">
+    position: relative;
 
-                <i class="fa-solid fa-envelope"></i>
+    padding: 25px 15px;
 
-                tejashweejena50@gmail.com
+    text-align: center;
 
-            </a>
+    border: 1px solid var(--border);
 
+    border-radius: 18px;
 
-            <a
-                href="https://wa.me/916289292667"
-                target="_blank"
-                rel="noopener">
+    background:
+        rgba(255,255,255,0.035);
 
-                <i class="fa-brands fa-whatsapp"></i>
+}
 
-                WhatsApp
+.process-number {
 
-            </a>
+    font-size: 0.7rem;
 
-        </div>
+    color: var(--secondary);
 
-    </div>
+    font-weight: 900;
 
+    margin-bottom: 15px;
 
-    <div class="footer-bottom">
+}
 
-        <p>
+.process-step > i {
 
-            ©
+    font-size: 1.4rem;
 
-            <span id="year"></span>
+    margin-bottom: 14px;
 
-            NEXI Digital. All Rights Reserved.
+}
 
-        </p>
+.process-step h3 {
 
+    font-size: 0.9rem;
 
-        <p>
+    margin-bottom: 5px;
 
-            Designed & Developed by
+}
 
-            <strong>
-                Tejashwee Jena
-            </strong>
+.process-step p {
 
-        </p>
+    color: var(--muted);
 
-    </div>
+    font-size: 0.68rem;
 
-</footer>
+}
 
 
-<!-- FLOATING WHATSAPP -->
+/* =========================================================
+   PRICING
+========================================================= */
 
-<a
-    class="floating-whatsapp"
-    href="https://wa.me/916289292667?text=Hello%20NEXI%20Digital%2C%20I%20am%20interested%20in%20creating%20a%20website.%20Please%20share%20more%20details"
-    target="_blank"
-    rel="noopener"
-    aria-label="Contact NEXI Digital on WhatsApp">
+.pricing-grid {
 
-    <i class="fa-brands fa-whatsapp"></i>
+    display: grid;
 
-    <span>
-        Chat With Us
-    </span>
+    grid-template-columns:
+        repeat(4, 1fr);
 
-</a>
+    gap: 20px;
 
+}
 
-<!-- BACK TO TOP -->
+.pricing-card {
 
-<button
-    id="backToTop"
-    class="back-to-top"
-    aria-label="Back to top">
+    position: relative;
 
-    <i class="fa-solid fa-arrow-up"></i>
+    text-align: center;
 
-</button>
+    padding: 35px 25px;
 
+    border-radius: 22px;
 
-<script src="main.js"></script>
-```
+    border: 1px solid var(--border);
 
-</body>
+    background:
+        rgba(255,255,255,0.04);
 
-</html>
+    transition: 0.4s;
+
+}
+
+.pricing-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.3);
+
+}
+
+.pricing-icon {
+
+    font-size: 1.8rem;
+
+    color: var(--secondary);
+
+    margin-bottom: 15px;
+
+}
+
+.pricing-card h3 {
+
+    font-size: 1.2rem;
+
+}
+
+.pricing-price {
+
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    margin: 10px 0;
+
+}
+
+.pricing-card p {
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+
+    margin-bottom: 20px;
+
+}
+
+.popular-price {
+
+    border-color:
+        rgba(124,92,255,0.6);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124,92,255,0.12),
+            rgba(255,255,255,0.035)
+        );
+
+}
+
+.pricing-badge {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    font-size: 0.55rem;
+
+    font-weight: 900;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    background:
+        var(--primary);
+
+}
+
+.pricing-note {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio-filter {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 35px;
+
+}
+
+.filter-btn {
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: var(--muted);
+
+    padding: 9px 15px;
+
+    border-radius: 10px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+
+    color: white;
+
+    background:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+}
+
+
+.portfolio-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.portfolio-card {
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    transition: 0.4s;
+
+}
+
+.portfolio-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.3);
+
+}
+
+.portfolio-card.hidden {
+
+    display: none;
+
+}
+
+.portfolio-image {
+
+    height: 200px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 4rem;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.portfolio-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent,
+            rgba(255,255,255,0.08)
+        );
+
+}
+
+.business-image {
+
+    background:
+        linear-gradient(
+            135deg,
+            #191047,
+            #0c4560
+        );
+
+}
+
+.education-image {
+
+    background:
+        linear-gradient(
+            135deg,
+            #142044,
+            #064e5a
+        );
+
+}
+
+.restaurant-image {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3c173c,
+            #101d48
+        );
+
+}
+
+.ecommerce-image {
+
+    background:
+        linear-gradient(
+            135deg,
+            #123f39,
+            #16114d
+        );
+
+}
+
+.portfolio-image-2 {
+
+    background:
+        linear-gradient(
+            135deg,
+            #271347,
+            #12334d
+        );
+
+}
+
+.portfolio-content {
+
+    padding: 22px;
+
+}
+
+.portfolio-content > span {
+
+    color: var(--secondary);
+
+    font-size: 0.6rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+.portfolio-content h3 {
+
+    margin: 5px 0;
+
+}
+
+.portfolio-content p {
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+
+    margin-bottom: 15px;
+
+}
+
+.portfolio-content a {
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+}
+
+.portfolio-content a i {
+
+    margin-left: 5px;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+
+    padding: 40px 0 100px;
+
+}
+
+.cta-box {
+
+    padding: 55px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    border-radius: 30px;
+
+    border: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0,217,255,0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(124,92,255,0.16),
+            transparent 30%
+        ),
+        rgba(255,255,255,0.045);
+
+    backdrop-filter: blur(20px);
+
+}
+
+.cta-box h2 {
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.2rem
+    );
+
+    line-height: 1.1;
+
+    margin-bottom: 12px;
+
+}
+
+.cta-box p {
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr
+        1.2fr;
+
+    gap: 25px;
+
+}
+
+.contact-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.contact-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+}
+
+.contact-icon {
+
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(124,92,255,0.12);
+
+    color: var(--secondary);
+
+}
+
+.contact-card span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 0.58rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+.contact-card a,
+.contact-card p {
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    margin: 0;
+
+}
+
+.contact-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+}
+
+.contact-actions .btn {
+
+    flex: 1;
+
+    min-width: 120px;
+
+    font-size: 0.72rem;
+
+}
+
+
+.contact-form-wrapper {
+
+    padding: 30px;
+
+}
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 15px;
+
+}
+
+.form-group {
+
+    margin-bottom: 16px;
+
+}
+
+.form-group label {
+
+    display: block;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border-radius: 12px;
+
+    padding: 12px 14px;
+
+    transition: 0.3s;
+
+}
+
+.form-group select option {
+
+    background: #0b0e1c;
+
+    color: white;
+
+}
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 120px;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #6f7890;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(124,92,255,0.08);
+
+}
+
+
+.error-message {
+
+    display: block;
+
+    color: #ff7b8d;
+
+    font-size: 0.65rem;
+
+    margin-top: 5px;
+
+    min-height: 12px;
+
+}
+
+.form-result {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    font-size: 0.75rem;
+
+    display: none;
+
+}
+
+.form-result.success {
+
+    display: block;
+
+    color: #8ff0b0;
+
+    background:
+        rgba(37,211,102,0.08);
+
+    border:
+        1px solid rgba(37,211,102,0.2);
+
+}
+
+.form-result.error {
+
+    display: block;
+
+    color: #ff8b9b;
+
+    background:
+        rgba(255,70,90,0.08);
+
+    border:
+        1px solid rgba(255,70,90,0.2);
+
+}
+
+.submit-btn {
+
+    border: 0;
+
+    width: 100%;
+
+}
+
+
+.location-card {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.location-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 55px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,217,255,0.1);
+
+    color: var(--secondary);
+
+    font-size: 1.2rem;
+
+}
+
+.location-card > div {
+
+    flex: 1;
+
+}
+
+.location-card span {
+
+    font-size: 0.6rem;
+
+    color: var(--muted);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+.location-card h3 {
+
+    font-size: 1rem;
+
+}
+
+.location-card p {
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    padding: 70px 0 20px;
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        rgba(0,0,0,0.2);
+
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr;
+
+    gap: 50px;
+
+    padding-bottom: 50px;
+
+}
+
+.footer-logo {
+
+    margin-bottom: 20px;
+
+}
+
+.footer p {
+
+    color: var(--muted);
+
+    font-size: 0.8rem;
+
+    max-width: 380px;
+
+}
+
+.ceo-footer {
+
+    margin-top: 10px;
+
+}
+
+.footer-links,
+.footer-contact {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.footer h3 {
+
+    font-size: 0.85rem;
+
+    margin-bottom: 8px;
+
+}
+
+.footer-links a,
+.footer-contact a {
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+
+    transition: 0.3s;
+
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+
+    color: white;
+
+}
+
+.footer-contact i {
+
+    width: 20px;
+
+    color: var(--secondary);
+
+}
+
+.footer-bottom {
+
+    border-top:
+        1px solid var(--border);
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+.footer-bottom p {
+
+    font-size: 0.68rem;
+
+}
+
+
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
+
+.floating-whatsapp {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 900;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 15px;
+
+    border-radius: 50px;
+
+    background:
+        var(--success);
+
+    color: white;
+
+    box-shadow:
+        0 15px 40px rgba(37,211,102,0.25);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    animation:
+        whatsappPulse 2.5s infinite;
+
+}
+
+.floating-whatsapp i {
+
+    font-size: 1.3rem;
+
+}
+
+
+@keyframes whatsappPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 15px 40px rgba(37,211,102,0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 15px 55px rgba(37,211,102,0.5);
+    }
+
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+
+    position: fixed;
+
+    right: 22px;
+    bottom: 85px;
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        rgba(10,14,30,0.8);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition: 0.3s;
+
+    z-index: 800;
+
+}
+
+.back-to-top.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+
+    outline:
+        2px solid var(--secondary);
+
+    outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+
+        gap: 16px;
+
+    }
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .hero-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .hero-visual {
+
+        min-height: 570px;
+
+    }
+
+    .about-grid,
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .service-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .feature-grid,
+    .why-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .process-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+    .pricing-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .portfolio-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 28px),
+                var(--container)
+            );
+
+    }
+
+    .section {
+
+        padding: 80px 0;
+
+    }
+
+    .header {
+
+        padding: 12px 0;
+
+    }
+
+    .navbar {
+
+        position: fixed;
+
+        top: 70px;
+        left: 14px;
+        right: 14px;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background:
+            rgba(7,10,22,0.96);
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 20px;
+
+        backdrop-filter: blur(20px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        transition: 0.3s;
+
+    }
+
+    .navbar.open {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+
+    }
+
+    .nav-link {
+
+        padding: 9px;
+
+    }
+
+    .nav-link::after {
+
+        display: none;
+
+    }
+
+    .nav-cta {
+
+        text-align: center;
+
+        margin-top: 5px;
+
+    }
+
+    .menu-toggle {
+
+        display: flex;
+
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+
+        transform:
+            translateY(7px)
+            rotate(45deg);
+
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+
+        opacity: 0;
+
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+
+    }
+
+    .hero {
+
+        padding-top: 110px;
+
+    }
+
+    .hero-content h1 {
+
+        font-size: 4rem;
+
+        letter-spacing: -3px;
+
+    }
+
+    .hero-content h2 {
+
+        font-size: 1.55rem;
+
+    }
+
+    .hero-description {
+
+        font-size: 0.9rem;
+
+    }
+
+    .hero-stats {
+
+        gap: 18px;
+
+    }
+
+    .hero-stats strong {
+
+        font-size: 1.1rem;
+
+    }
+
+    .hero-stats span {
+
+        font-size: 0.6rem;
+
+    }
+
+    .hero-visual {
+
+        min-height: 500px;
+
+        transform: scale(0.9);
+
+        margin: -30px 0;
+
+    }
+
+    .ceo-card {
+
+        width: 290px;
+
+    }
+
+    .ring-one {
+
+        width: 400px;
+        height: 400px;
+
+    }
+
+    .ring-two {
+
+        width: 450px;
+        height: 280px;
+
+    }
+
+    .ring-three {
+
+        width: 300px;
+        height: 500px;
+
+    }
+
+    .floating-tech {
+
+        font-size: 0.6rem;
+
+    }
+
+    .card-project {
+
+        right: -2%;
+
+    }
+
+    .card-speed {
+
+        left: -2%;
+
+    }
+
+    .about-ceo {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .mini-ceo {
+
+        width: 120px;
+        height: 120px;
+
+        flex-basis: 120px;
+
+    }
+
+    .service-grid,
+    .feature-grid,
+    .why-grid,
+    .pricing-grid,
+    .portfolio-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .process-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .cta-box {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 35px;
+
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
+    .location-card {
+
+        flex-wrap: wrap;
+
+    }
+
+    .location-card > div {
+
+        min-width: 200px;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+    }
+
+    .floating-whatsapp span {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-content h1 {
+
+        font-size: 3.4rem;
+
+    }
+
+    .hero-buttons {
+
+        width: 100%;
+
+    }
+
+    .hero-buttons .btn {
+
+        width: 100%;
+
+    }
+
+    .hero-visual {
+
+        transform: scale(0.76);
+
+        margin:
+            -80px -50px;
+
+    }
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .contact-actions {
+
+        flex-direction: column;
+
+    }
+
+    .contact-actions .btn {
+
+        width: 100%;
+
+    }
+
+}
