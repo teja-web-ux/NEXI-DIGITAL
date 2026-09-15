@@ -1499,7 +1499,368 @@ img {
     }
 
 }
+/* =========================================================
+   MANAGER PROFILE
+========================================================= */
 
+.manager-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Main profile card */
+.manager-profile {
+    position: relative;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 55px;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 30px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+.manager-profile:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 210, 255, 0.35);
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.45),
+        0 0 45px rgba(0, 210, 255, 0.08);
+}
+
+
+/* =========================================================
+   MANAGER IMAGE
+========================================================= */
+
+.manager-image {
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manager-image::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 210, 255, 0.35);
+
+    animation: managerRotate 8s linear infinite;
+}
+
+.manager-image::after {
+    content: "";
+    position: absolute;
+    inset: -25px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(120, 90, 255, 0.25);
+
+    animation: managerRotateReverse 12s linear infinite;
+}
+
+.manager-image-glow {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+
+    border-radius: 50%;
+
+    background: rgba(0, 210, 255, 0.12);
+
+    filter: blur(45px);
+
+    z-index: 0;
+}
+
+.manager-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(0, 210, 255, 0.15);
+
+    transition: transform 0.5s ease,
+                border-color 0.5s ease;
+}
+
+.manager-profile:hover .manager-image img {
+    transform: scale(1.04);
+
+    border-color: rgba(0, 210, 255, 0.45);
+}
+
+
+/* =========================================================
+   MANAGER CONTENT
+========================================================= */
+
+.manager-content {
+    position: relative;
+}
+
+.manager-role {
+    display: inline-block;
+
+    margin-bottom: 12px;
+    padding: 7px 16px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #00d9ff;
+
+    background: rgba(0, 210, 255, 0.08);
+
+    border: 1px solid rgba(0, 210, 255, 0.20);
+
+    border-radius: 50px;
+}
+
+.manager-content h3 {
+    margin: 0;
+
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #00d9ff,
+        #9b7cff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.manager-content h4 {
+    margin: 12px 0 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    opacity: 0.75;
+}
+
+.manager-content p {
+    margin: 0 0 16px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   MANAGER DETAILS
+========================================================= */
+
+.manager-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+.manager-details div {
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+}
+
+.manager-details div:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-color: rgba(0, 210, 255, 0.25);
+}
+
+.manager-details strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    color: #00d9ff;
+
+    letter-spacing: 0.5px;
+}
+
+.manager-details span {
+    display: block;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes managerRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes managerRotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .manager-profile {
+        grid-template-columns: 280px 1fr;
+        gap: 35px;
+        padding: 35px;
+    }
+
+    .manager-image {
+        max-width: 270px;
+    }
+
+    .manager-details {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .manager-profile {
+        grid-template-columns: 1fr;
+
+        padding: 30px 20px;
+
+        text-align: center;
+
+        border-radius: 24px;
+    }
+
+    .manager-image {
+        max-width: 240px;
+    }
+
+    .manager-content h3 {
+        font-size: 34px;
+    }
+
+    .manager-content h4 {
+        font-size: 16px;
+    }
+
+    .manager-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .manager-details {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .manager-profile {
+        padding: 25px 16px;
+    }
+
+    .manager-image {
+        max-width: 200px;
+    }
+
+    .manager-content h3 {
+        font-size: 29px;
+    }
+
+    .manager-role {
+        font-size: 10px;
+    }
+
+}
 
 /* =========================================================
    GLASS CARDS
